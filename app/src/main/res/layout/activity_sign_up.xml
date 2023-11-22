@@ -9,6 +9,45 @@
     tools:context=".SignUp">
 
 
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="156dp"
+        android:layout_height="23dp"
+        android:text="Confirm Password"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/confirmPasswordLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="156dp"
+        android:layout_height="23dp"
+        android:text="Username"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/emailLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="156dp"
+        android:layout_height="23dp"
+        android:text="Password"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/passwordLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"
         style="@style/LoginTextInputOuterFieldStyle"
@@ -28,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext_background"
-            android:hint="Type your Email"
+            android:hint=""
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +93,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext_background"
             android:backgroundTint="#FFFFFF"
-            android:hint="Type Your Password"
+            android:hint=""
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,7 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext_background"
-            android:hint="Retype Your Password"
+            android:hint=""
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 

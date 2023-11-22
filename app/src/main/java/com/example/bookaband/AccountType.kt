@@ -13,8 +13,6 @@ class AccountType : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account_type)
 
-
-
         var btnBand: Button = findViewById(R.id.btnBand)
         var btnOrganizer: Button = findViewById(R.id.btnBand)
 
