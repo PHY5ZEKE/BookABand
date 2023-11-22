@@ -36,7 +36,7 @@ class SignUp : AppCompatActivity() {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                val intent = Intent(this, Login::class.java)
+                                val intent = Intent(this, Landing::class.java)
                                 startActivity(intent)
                             } else {
                                 handleFirebaseException(task.exception)

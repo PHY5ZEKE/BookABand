@@ -14,7 +14,7 @@ class AccountType : AppCompatActivity() {
         setContentView(R.layout.activity_account_type)
 
         var btnBand: Button = findViewById(R.id.btnBand)
-        var btnOrganizer: Button = findViewById(R.id.btnBand)
+        var btnOrganizer: Button = findViewById(R.id.btnOrganizer)
 
         btnBand.setOnClickListener{
             val intent = Intent(this, CreateBand::class.java)

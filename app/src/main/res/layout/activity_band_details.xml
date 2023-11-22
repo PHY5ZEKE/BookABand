@@ -1,57 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<!-- res/layout/activity_band_details.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".BandDetails">
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailTitle"
-        android:text="Title"
-        android:layout_marginTop="14dp"
-        android:textSize="24sp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="12dp"
-        android:textColor="@color/lavender"/>
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="75dp"
+        android:layout_height="78dp"
+        android:layout_alignTop="@id/detailImageView"
+        android:layout_alignParentStart="true"
+        android:background="@null"
+        android:padding="16dp"
+        android:text="Back"
+        android:textSize="16sp"/>
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="200dp"
-        android:id="@+id/detailImage"
-        android:padding="8dp"
-        android:layout_gravity="center"
-        android:src="@drawable/uploadimg"
-        android:scaleType="fitXY"/>
+        android:id="@+id/detailImageView"
+        android:layout_width="197dp"
+        android:layout_height="138dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uploadimg" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/detailNameTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:padding="20dp"
-        android:text="Language"
-        android:layout_gravity="center"
-        android:id="@+id/detailLang"
+        android:layout_below="@id/detailImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Band Name"
         android:textSize="18sp"
-        android:textColor="@color/lavender"/>
+        android:textStyle="bold" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/detailGenreTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:padding="20dp"
+        android:layout_below="@id/detailNameTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Genre"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/detailPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailGenreTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Price"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/detailDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailPriceTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
         android:text="Description"
-        android:layout_gravity="center"
-        android:id="@+id/detailDesc"
-        android:textSize="18sp"
-        android:textColor="@color/lavender"/>
+        android:textSize="16sp" />
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/detailEmailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailDescriptionTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Email"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/eventNameEditText"
         android:layout_width="match_parent"
+<<<<<<< Updated upstream
         android:layout_height="match_parent"
         android:background="#393939">
 
@@ -86,9 +113,56 @@
                 app:fab_colorNormal="@color/red"
                 app:fab_showShadow="true"
                 app:fab_size="mini" />
+=======
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailEmailTextView"
+        android:layout_marginTop="16dp"
+        android:hint="Event Name"
+        android:inputType="text"
+        android:minHeight="48dp" />
 
-        </com.github.clans.fab.FloatingActionMenu>
+    <EditText
+        android:id="@+id/locationEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eventNameEditText"
+        android:layout_marginTop="8dp"
+        android:hint="Location"
+        android:inputType="text"
+        android:minHeight="48dp" />
 
-    </RelativeLayout>
+    <EditText
+        android:id="@+id/dateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/locationEditText"
+        android:layout_marginTop="8dp"
+        android:focusable="false"
+        android:hint="Date"
+        android:inputType="none"
+        android:minHeight="48dp"
+        android:onClick="onDateClick" />
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/timeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateEditText"
+        android:layout_marginTop="8dp"
+        android:focusable="false"
+        android:hint="Time"
+        android:inputType="none"
+        android:minHeight="48dp"
+        android:onClick="onTimeClick" />
+>>>>>>> Stashed changes
+
+    <Button
+        android:id="@+id/bookBandButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/timeEditText"
+        android:layout_marginTop="16dp"
+        android:onClick="onBookBandClick"
+        android:text="Book Band" />
+
+</RelativeLayout>

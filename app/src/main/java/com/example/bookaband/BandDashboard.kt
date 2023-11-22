@@ -11,11 +11,15 @@ class BandDashboard : AppCompatActivity() {
         setContentView(R.layout.activity_band_dashboard)
 
         val buttonLogout: Button = findViewById(R.id.btnLogout)
-
+        val buttonRequests:Button = findViewById(R.id.btnRequests)
         buttonLogout.setOnClickListener{
             val intent = Intent(this, Landing::class.java)
             startActivity(intent)
             finish()
+        }
+        buttonRequests.setOnClickListener{
+            val intent = Intent(this, MyBookingsBand::class.java)
+            startActivity(intent)
         }
     }
 }

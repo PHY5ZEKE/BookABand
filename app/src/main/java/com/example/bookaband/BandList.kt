@@ -25,7 +25,7 @@ class BandList : AppCompatActivity() {
         val btnBack: Button = findViewById(R.id.btnBack)
         recyclerView = findViewById(R.id.recyclerView)
         bandList = mutableListOf()
-        bandAdapter = BandAdapter(bandList)
+        bandAdapter = BandAdapter(bandList){selectedBand->showBandDetails(selectedBand)}
 
         recyclerView.adapter = bandAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -66,6 +66,14 @@ class BandList : AppCompatActivity() {
                 Log.e("MainActivity", "Error loading data from Firebase: ${error.message}")
             }
         })
+    }
+    private fun showBandDetails(selectedBand: BandData) {
+        // Implement the logic to show the details of the selected band.
+        // You can use a dialog, another activity, or any other UI component to display the details.
+        // For example, you can create a new activity and pass the details using Intent.
+        val intent = Intent(this, BandDetails::class.java)
+        intent.putExtra("bandDetails", selectedBand)
+        startActivity(intent)
     }
 
 }

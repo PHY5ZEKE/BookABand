@@ -1,5 +1,7 @@
 package com.example.bookaband
 
+import java.io.Serializable
+
 data class BandData(
     val userUid: String,
     val name: String,
@@ -8,7 +10,7 @@ data class BandData(
     val desc: String,
     val price: Float,
     val imageURL: String?
-) {
+):Serializable {
     // Empty constructor
     constructor() : this("", "", "", "", "", 0.0f, null)
 }
