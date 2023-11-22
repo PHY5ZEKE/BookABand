@@ -5,162 +5,145 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="75dp"
-        android:layout_height="78dp"
-        android:layout_alignTop="@id/detailImageView"
-        android:layout_alignParentStart="true"
-        android:background="@null"
-        android:padding="16dp"
-        android:text="Back"
-        android:textSize="16sp"/>
+    <ScrollView
+        android:layout_width="364dp"
+        android:layout_height="389dp"
+        android:layout_above="@+id/bookBandButton"
+        android:layout_marginBottom="262dp">
 
-    <ImageView
-        android:id="@+id/detailImageView"
-        android:layout_width="197dp"
-        android:layout_height="138dp"
-        android:layout_centerHorizontal="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/uploadimg" />
+        <!-- Band Details Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/detailNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/detailImageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="Band Name"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="75dp"
+                android:layout_height="78dp"
+                android:layout_alignTop="@id/detailImageView"
+                android:layout_alignParentStart="true"
+                android:background="@null"
+                android:padding="16dp"
+                android:text="Back"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/detailGenreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/detailNameTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="Genre"
-        android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/detailImageView"
+                android:layout_width="197dp"
+                android:layout_height="138dp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/uploadimg" />
 
-    <TextView
-        android:id="@+id/detailPriceTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/detailGenreTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="Price"
-        android:textSize="16sp" />
+            <TextView
+                android:id="@+id/detailNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailImageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="Band Name"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/detailDescriptionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/detailPriceTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="Description"
-        android:textSize="16sp" />
+            <TextView
+                android:id="@+id/detailGenreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailNameTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Genre"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/detailEmailTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/detailDescriptionTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="Email"
-        android:textSize="16sp" />
+            <TextView
+                android:id="@+id/detailPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailGenreTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Price"
+                android:textSize="16sp" />
 
-    <EditText
-        android:id="@+id/eventNameEditText"
-        android:layout_width="match_parent"
-<<<<<<< Updated upstream
-        android:layout_height="match_parent"
-        android:background="#393939">
+            <TextView
+                android:id="@+id/detailDescriptionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailPriceTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Description"
+                android:textSize="16sp" />
 
-        <com.github.clans.fab.FloatingActionMenu
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/detailEmailTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailDescriptionTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Email"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <!-- Booking Form Section -->
+    <RelativeLayout
+        android:layout_width="366dp"
+        android:layout_height="328dp"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:id="@+id/eventNameEditText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            app:menu_colorNormal="@color/lavender"
-            app:menu_colorPressed="@color/lavender"
-            app:menu_fab_size="normal"
-            app:menu_icon="@drawable/common_google_signin_btn_icon_dark"
-            app:menu_openDirection="up"
-            app:menu_showShadow="true">
+            android:hint="Event Name"
+            android:inputType="text"
+            android:minHeight="48dp" />
 
-            <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/editButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_add_24"
-                app:fab_colorNormal="@color/green"
-                app:fab_showShadow="true"
-                app:fab_size="mini" />
+        <EditText
+            android:id="@+id/locationEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/eventNameEditText"
+            android:layout_marginTop="8dp"
+            android:hint="Location"
+            android:inputType="text"
+            android:minHeight="48dp" />
 
-            <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/deleteButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_add_24"
-                app:fab_colorNormal="@color/red"
-                app:fab_showShadow="true"
-                app:fab_size="mini" />
-=======
-        android:layout_height="wrap_content"
-        android:layout_below="@id/detailEmailTextView"
-        android:layout_marginTop="16dp"
-        android:hint="Event Name"
-        android:inputType="text"
-        android:minHeight="48dp" />
+        <EditText
+            android:id="@+id/dateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/locationEditText"
+            android:layout_marginTop="8dp"
+            android:focusable="false"
+            android:hint="Date"
+            android:inputType="none"
+            android:minHeight="48dp"
+            android:onClick="onDateClick" />
 
-    <EditText
-        android:id="@+id/locationEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/eventNameEditText"
-        android:layout_marginTop="8dp"
-        android:hint="Location"
-        android:inputType="text"
-        android:minHeight="48dp" />
+        <EditText
+            android:id="@+id/timeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dateEditText"
+            android:layout_marginTop="8dp"
+            android:focusable="false"
+            android:hint="Time"
+            android:inputType="none"
+            android:minHeight="48dp"
+            android:onClick="onTimeClick" />
+    </RelativeLayout>
 
-    <EditText
-        android:id="@+id/dateEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/locationEditText"
-        android:layout_marginTop="8dp"
-        android:focusable="false"
-        android:hint="Date"
-        android:inputType="none"
-        android:minHeight="48dp"
-        android:onClick="onDateClick" />
-
-    <EditText
-        android:id="@+id/timeEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dateEditText"
-        android:layout_marginTop="8dp"
-        android:focusable="false"
-        android:hint="Time"
-        android:inputType="none"
-        android:minHeight="48dp"
-        android:onClick="onTimeClick" />
->>>>>>> Stashed changes
 
     <Button
         android:id="@+id/bookBandButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/timeEditText"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:onClick="onBookBandClick"
         android:text="Book Band" />
