@@ -1,7 +1,9 @@
 package com.example.bookaband
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +22,7 @@ class BandList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_band_list)
 
+        val btnBack: Button = findViewById(R.id.btnBack)
         recyclerView = findViewById(R.id.recyclerView)
         bandList = mutableListOf()
         bandAdapter = BandAdapter(bandList)
@@ -29,6 +32,11 @@ class BandList : AppCompatActivity() {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Band Data")
         loadData()
+
+       btnBack.setOnClickListener{
+            val intent = Intent(this, UserDashboard::class.java)
+            startActivity(intent)
+        }
 
     }
 
