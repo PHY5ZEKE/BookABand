@@ -4,96 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#393939"
     tools:context=".BandDashboard">
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="127dp"
-        android:layout_height="122dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="322dp"
+        android:layout_height="101dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.09">
+        app:layout_constraintVertical_bias="0.397">
+
+        <Button
+            android:id="@+id/btnRequests"
+            android:layout_width="wrap_content"
+            android:layout_height="87dp"
+            android:backgroundTint="#646464"
+            android:text="Pending Requests" />
+
+        <Button
+            android:id="@+id/btnEvents"
+            android:layout_width="155dp"
+            android:layout_height="83dp"
+            android:backgroundTint="#646464"
+            android:text="Incoming Events" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="323dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.067">
+
+        <Button
+            android:id="@+id/btnEditAcc"
+            android:layout_width="167dp"
+            android:layout_height="81dp"
+            android:backgroundTint="#646464"
+            android:text="EditAccount" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="155dp"
+            android:layout_height="85dp"
+            android:backgroundTint="#646464"
+            android:text="Logout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="#1E1E1E"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/bandLogo"
+            android:layout_width="73dp"
+            android:layout_height="55dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtBandName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
-    </FrameLayout>
+            android:text="Organizer Name"
+            android:textColor="#FFFFFF" />
 
-    <TextView
-        android:id="@+id/txtBandName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Band Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.292" />
-
-    <Button
-        android:id="@+id/btnEvents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Incoming Events"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455" />
-
-    <Button
-        android:id="@+id/btnEditAcc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="EditAccount"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.221"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.79"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455" />
-
-    <Button
-        android:id="@+id/btnRequests"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pending Requests"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.874"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455" />
-
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.789"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
-
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
