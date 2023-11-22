@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "645194560972",
+    "project_id": "book-a-band",
+    "storage_bucket": "book-a-band.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645194560972:android:c4dc2230acb42b730b9969",
+        "android_client_info": {
+          "package_name": "com.example.bookaband"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkNW0I5nm3_zra1WDc3xRgstvlkRofWtI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
