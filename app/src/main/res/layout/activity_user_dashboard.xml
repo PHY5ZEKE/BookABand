@@ -86,6 +86,7 @@
         android:layout_height="46dp"
         android:backgroundTint="#435585"
         android:text="Book a Band"
+        android:textColor="#F5E8C7"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

@@ -66,8 +66,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myBookingsRecyclerView"
-        android:layout_width="367dp"
-        android:layout_height="406dp"
+        android:layout_width="363dp"
+        android:layout_height="439dp"
         android:layout_alignParentBottom="true"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"

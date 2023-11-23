@@ -47,6 +47,7 @@
                 android:layout_width="252dp"
                 android:layout_height="27dp"
                 android:text="Name"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -56,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Genre"
+                android:textColor="#000000"
                 android:textSize="12sp" />
 
             <TextView
@@ -64,6 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Price Range"
+                android:textColor="#000000"
                 android:textSize="14sp" />
         </LinearLayout>
 

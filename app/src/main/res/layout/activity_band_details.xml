@@ -95,15 +95,19 @@
     </ScrollView>
 
     <!-- Booking Form Section -->
+
+
     <RelativeLayout
         android:layout_width="366dp"
         android:layout_height="328dp"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="36dp">
 
         <EditText
             android:id="@+id/eventNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_edittext_background"
             android:hint="Event Name"
             android:inputType="text"
             android:minHeight="48dp"
@@ -116,6 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/eventNameEditText"
             android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext_background"
             android:hint="Location"
             android:inputType="text"
             android:minHeight="48dp"
@@ -127,6 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/locationEditText"
             android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext_background"
             android:focusable="false"
             android:hint="Date"
             android:inputType="none"
@@ -140,6 +146,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/dateEditText"
             android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext_background"
             android:focusable="false"
             android:hint="Time"
             android:inputType="none"
@@ -147,7 +154,6 @@
             android:onClick="onTimeClick"
             android:textColor="#F5E8C7" />
     </RelativeLayout>
-
 
     <Button
         android:id="@+id/bookBandButton"

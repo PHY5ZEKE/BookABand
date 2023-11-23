@@ -12,14 +12,15 @@
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/eventNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Event"
-            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
@@ -28,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="location"
+            android:textColor="#000000"
             android:textSize="16sp" />
 
         <TextView
@@ -36,14 +38,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="date"
+            android:textColor="#090909"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/timeTextView"
-            android:layout_width="match_parent"
+            android:layout_width="314dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="time"
+            android:textColor="#000000"
             android:textSize="16sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
