@@ -109,6 +109,8 @@ class BandDetails : AppCompatActivity() {
     // Method to handle the "Book Band" button click
     // ...
 
+    // ...
+
     fun onBookBandClick(view: android.view.View) {
         val bandDetails: BandData = intent.getSerializableExtra("bandDetails") as BandData
         val userId = auth.currentUser?.uid
@@ -118,46 +120,59 @@ class BandDetails : AppCompatActivity() {
         val dateEditText = findViewById<EditText>(R.id.dateEditText)
         val timeEditText = findViewById<EditText>(R.id.timeEditText)
 
-        val eventName = eventNameEditText.text.toString()
-        val location = locationEditText.text.toString()
-        val date = dateEditText.text.toString()
-        val time = timeEditText.text.toString()
+        val eventName = eventNameEditText.text.toString().trim()
+        val location = locationEditText.text.toString().trim()
+        val date = dateEditText.text.toString().trim()
+        val time = timeEditText.text.toString().trim()
 
         // Validate input fields
         if (eventName.isNotEmpty() && location.isNotEmpty() && date.isNotEmpty() && time.isNotEmpty()) {
-            val bookingData = BookingData(
-                bandId = bandDetails.userUid,
-                eventName = eventName,
-                location = location,
-                date = date,
-                time = time,
-                userId = userId.toString()
-            )
+            val currentDate = Calendar.getInstance()
+            val selectedDate = Calendar.getInstance()
+            val dateParts = date.split("-")
+            selectedDate.set(dateParts[2].toInt(), dateParts[1].toInt() - 1, dateParts[0].toInt())
 
-            val databaseReference = FirebaseDatabase.getInstance().getReference("Bookings")
-            val bookingId = databaseReference.push().key
+            if (selectedDate.after(currentDate)) {
+                // Proceed with booking since the selected date is valid
 
-            if (bookingId != null) {
-                databaseReference.child(bookingId).setValue(bookingData)
+                val bookingData = BookingData(
+                    bandId = bandDetails.userUid,
+                    eventName = eventName,
+                    location = location,
+                    date = date,
+                    time = time,
+                    userId = userId.toString()
+                )
 
-                // Clear input fields
-                eventNameEditText.text.clear()
-                locationEditText.text.clear()
-                dateEditText.text.clear()
-                timeEditText.text.clear()
+                val databaseReference = FirebaseDatabase.getInstance().getReference("Bookings")
+                val bookingId = databaseReference.push().key
 
-                // Show toast message
-                Toast.makeText(this, "Booking Requested", Toast.LENGTH_SHORT).show()
+                if (bookingId != null) {
+                    databaseReference.child(bookingId).setValue(bookingData)
 
-                // Navigate back to UserDashboard activity
-                val intent = Intent(this, UserDashboard::class.java)
-                startActivity(intent)
+                    // Clear input fields
+                    eventNameEditText.text.clear()
+                    locationEditText.text.clear()
+                    dateEditText.text.clear()
+                    timeEditText.text.clear()
+
+                    // Show toast message
+                    Toast.makeText(this, "Booking Requested", Toast.LENGTH_SHORT).show()
+
+                    // Navigate back to UserDashboard activity
+                    val intent = Intent(this, UserDashboard::class.java)
+                    startActivity(intent)
+                }
+            } else {
+                // Show an error toast message if the selected date is not valid
+                Toast.makeText(this, "Please select a future date", Toast.LENGTH_SHORT).show()
             }
         } else {
             // Show an error toast message if any field is empty
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
         }
     }
+
 
 
 }
