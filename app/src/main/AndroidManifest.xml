@@ -15,6 +15,9 @@
         android:theme="@style/Theme.BookABand"
         tools:targetApi="31">
         <activity
+            android:name=".EditUser"
+            android:exported="false" />
+        <activity
             android:name=".EditBand"
             android:exported="false" />
         <activity
@@ -60,6 +63,8 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
     </application>

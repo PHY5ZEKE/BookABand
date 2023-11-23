@@ -1,6 +1,7 @@
 package com.example.bookaband
 
 import android.app.AlertDialog
+import android.content.ClipDescription
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -17,17 +18,15 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 
-class EditBand : AppCompatActivity() {
+class EditUser : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
     private lateinit var storageReference: StorageReference
 
-    private lateinit var uploadBandName: EditText
-    private lateinit var uploadEmail: EditText
-    private lateinit var uploadGenre: EditText
-    private lateinit var uploadDescription: EditText
-    private lateinit var uploadPriceRange: EditText
+    private lateinit var uploadName: EditText
+    private lateinit var uploadContact: EditText
+    private lateinit var uploadUserDescription: EditText
     private lateinit var uploadImage: ImageView
     private lateinit var uploadButton: Button
 
@@ -48,19 +47,16 @@ class EditBand : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_band)
+        setContentView(R.layout.activity_edit_user)
 
         auth = FirebaseAuth.getInstance()
-        databaseReference = FirebaseDatabase.getInstance().getReference("Band Data")
+        databaseReference = FirebaseDatabase.getInstance().getReference("User Data")
         storageReference = FirebaseStorage.getInstance().reference
 
-        uploadBandName = findViewById(R.id.uploadBandName)
-        uploadEmail = findViewById(R.id.uploadEmail)
-        uploadGenre = findViewById(R.id.uploadGenre)
-        uploadDescription = findViewById(R.id.uploadDescription)
-        uploadPriceRange = findViewById(R.id.uploadPriceRange)
-        uploadImage = findViewById(R.id.uploadImage)
-        uploadButton = findViewById(R.id.saveButton)
+        uploadName = findViewById(R.id.uploadName)
+        uploadContact = findViewById(R.id.uploadContact)
+        uploadUserDescription = findViewById(R.id.uploadUserDescription)
+
 
         populateUI()
 
@@ -87,13 +83,12 @@ class EditBand : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     // Retrieve data and set it to the UI elements
-                    val data = snapshot.getValue(BandData::class.java)
+                    val data = snapshot.getValue(User::class.java)
                     if (data != null) {
-                        uploadBandName.setText(data.name)
-                        uploadEmail.setText(data.email)
-                        uploadGenre.setText(data.genre)
-                        uploadDescription.setText(data.desc)
-                        uploadPriceRange.setText(data.price.toString())
+                        uploadName.setText(data.name)
+                        uploadContact.setText(data.contact)
+                        uploadUserDescription.setText(data.desc)
+
 
 
                     }
@@ -113,7 +108,7 @@ class EditBand : AppCompatActivity() {
             return
         }
 
-        val storageReference = FirebaseStorage.getInstance().reference.child("Band Images")
+        val storageReference = FirebaseStorage.getInstance().reference.child("User Pfp")
             .child(imageUri?.lastPathSegment.toString())
         val builder = AlertDialog.Builder(this)
         builder.setCancelable(false)
@@ -139,31 +134,29 @@ class EditBand : AppCompatActivity() {
     private fun uploadTextData() {
         val currentUser = auth.currentUser
         currentUser?.let { user ->
-            val name = uploadBandName.text.toString().trim()
-            val email = uploadEmail.text.toString().trim()
-            val genre = uploadGenre.text.toString().trim()
-            val desc = uploadDescription.text.toString().trim()
-            val price = uploadPriceRange.text.toString().trim()
+            val name = uploadName.text.toString().trim()
+            val contact = uploadContact.text.toString().trim()
+            val desc = uploadUserDescription.text.toString().trim()
 
-            if (name.isEmpty() || email.isEmpty() || genre.isEmpty() || desc.isEmpty() || price.isEmpty()) {
+
+            if (name.isEmpty() || contact.isEmpty() || desc.isEmpty()) {
                 Toast.makeText(this, "All fields are required.", Toast.LENGTH_SHORT).show()
                 return
             }
 
             try {
-                val priceFloat = price.toFloat()
+
                 val userUid = user.uid
-                val bandData = BandData(userUid, name, email, genre, desc, priceFloat, imageURL)
+                val userData = User(userUid, name, contact, desc,  imageURL)
 
                 // Use updateChildren instead of setValue to update only specific fields
                 val updateDataMap = mutableMapOf<String, Any>()
-                updateDataMap["name"] = bandData.name
-                updateDataMap["email"] = bandData.email
-                updateDataMap["genre"] = bandData.genre
-                updateDataMap["desc"] = bandData.desc
-                updateDataMap["price"] = bandData.price
+                updateDataMap["name"] = userData.name
+                updateDataMap["contact"] = userData.contact
+                updateDataMap["desc"] = userData.desc
+
                 if (imageUri != null) {
-                    updateDataMap["imageURL"] = bandData.imageURL.toString()
+                    updateDataMap["imageURL"] = userData.imageURL.toString()
                 }
 
                 databaseReference.child(userUid)
