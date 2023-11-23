@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        app:cardBackgroundColor="#F5E8C7"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp">
 
@@ -20,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/lavender_border"
+            android:gravity="center"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -28,16 +30,22 @@
                 android:layout_height="wrap_content"
                 android:text="Upload Your Logo or Image"
                 android:textAlignment="center"
-                android:textColor="@color/lavender"
+                android:textColor="#363062"
                 android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/uploadPfp"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_width="129dp"
+                android:layout_height="114dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/uploadimg" />
+                android:src="@drawable/upload" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="289dp"
+                android:layout_height="wrap_content"
+                android:text="Organizer Name" />
 
             <EditText
                 android:id="@+id/uploadName"
@@ -48,7 +56,13 @@
                 android:gravity="start|center_vertical"
                 android:hint="Name"
                 android:padding="16dp"
-                android:textColor="@color/lavender" />
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="289dp"
+                android:layout_height="wrap_content"
+                android:text="Contact no." />
 
             <EditText
                 android:id="@+id/uploadContact"
@@ -62,6 +76,13 @@
                 android:textColor="@color/lavender" />
 
             <!-- New EditText for Description -->
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="291dp"
+                android:layout_height="19dp"
+                android:text="Short Description" />
+
             <EditText
                 android:id="@+id/uploadUserDescription"
                 android:layout_width="match_parent"
@@ -77,11 +98,12 @@
 
             <Button
                 android:id="@+id/saveUser"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_width="192dp"
+                android:layout_height="62dp"
                 android:layout_marginTop="20dp"
+                android:backgroundTint="#435585"
                 android:text="Save"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 app:cornerRadius="20dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
