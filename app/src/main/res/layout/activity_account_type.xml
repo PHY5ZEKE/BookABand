@@ -8,8 +8,9 @@
     tools:context=".AccountType">
 
     <LinearLayout
-        android:layout_width="283dp"
-        android:layout_height="191dp"
+        android:id="@+id/linearLayout3"
+        android:layout_width="289dp"
+        android:layout_height="165dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,24 +22,32 @@
             android:id="@+id/btnBand"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:text="Band" />
+            android:backgroundTint="#F5E8C7"
+            android:text="Band"
+            android:textColor="#000000"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/btnOrganizer"
             android:layout_width="match_parent"
             android:layout_height="77dp"
-            android:text="Organizer" />
+            android:backgroundTint="#F5E8C7"
+            android:text="Organizer"
+            android:textColor="#000000"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="213dp"
-        android:layout_height="31dp"
+        android:layout_width="237dp"
+        android:layout_height="63dp"
         android:text="Are you a band or an organizer?"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.856" />
 </androidx.constraintlayout.widget.ConstraintLayout>

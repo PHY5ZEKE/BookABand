@@ -9,6 +9,40 @@
     tools:context=".Login">
 
 
+    <LinearLayout
+        android:layout_width="264dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="36dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:text="Login"
+            android:textColor="#F5E8C7"
+            android:textSize="35dp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="59dp"
+            android:layout_height="47dp"
+            app:srcCompat="@drawable/icon_only" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="68dp"
+            android:layout_height="21dp"
+            android:layout_weight="1"
+            android:text="Band"
+            android:textColor="#F5E8C7" />
+    </LinearLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"
         style="@style/LoginTextInputOuterFieldStyle"
@@ -65,7 +99,7 @@
         android:layout_height="47dp"
         android:layout_marginHorizontal="16dp"
         android:background="@drawable/rounded_edittext_background"
-        android:backgroundTint="#D1876F"
+        android:backgroundTint="#818FB4"
         android:text="Sign In"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -88,21 +122,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
         app:layout_constraintVertical_bias="0.157" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:text="Login as a Band"
-        android:textColor="@color/white"
-        android:textSize="35dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.234" />
 
     <TextView
         android:id="@+id/textView4"
