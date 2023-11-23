@@ -7,36 +7,6 @@
     android:background="#393939"
     tools:context=".AccountType">
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="289dp"
-        android:layout_height="165dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.616">
-
-        <Button
-            android:id="@+id/btnBand"
-            android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:backgroundTint="#F5E8C7"
-            android:text="Band"
-            android:textColor="#000000"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/btnOrganizer"
-            android:layout_width="match_parent"
-            android:layout_height="77dp"
-            android:backgroundTint="#F5E8C7"
-            android:text="Organizer"
-            android:textColor="#000000"
-            android:textSize="24sp" />
-    </LinearLayout>
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="237dp"
@@ -45,9 +15,43 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.856" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="196dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571">
+
+        <Button
+            android:id="@+id/btnBand"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#F5E8C7"
+            android:text="Band"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:cornerRadius="40px" />
+
+        <Button
+            android:id="@+id/btnOrganizer"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:backgroundTint="#F5E8C7"
+            android:text="Organizer"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:cornerRadius="40px" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

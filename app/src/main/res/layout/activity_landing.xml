@@ -9,34 +9,34 @@
 
     <Button
         android:id="@+id/btnLogBand"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
+        android:layout_width="289dp"
+        android:layout_height="57dp"
         android:backgroundTint="#F5E8C7"
         android:backgroundTintMode="add"
+        android:fontFamily="@font/intermedium"
         android:text="Band"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/btnLogUser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98" />
+        app:layout_constraintVertical_bias="0.983" />
 
     <Button
         android:id="@+id/btnLogUser"
-        android:layout_width="177dp"
-        android:layout_height="61dp"
+        android:layout_width="288dp"
+        android:layout_height="54dp"
         android:backgroundTint="#F5E8C7"
+        android:fontFamily="@font/intermedium"
         android:text="User"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788" />
+        app:layout_constraintVertical_bias="0.801" />
 
     <TextView
         android:id="@+id/txtRegisterLanding"

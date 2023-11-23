@@ -8,6 +8,79 @@
     tools:context=".BandDashboard">
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="149dp"
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/btnEditAcc"
+            android:layout_width="150dp"
+            android:layout_height="130dp"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="#F5E8C7"
+            android:gravity="start|top"
+            android:text="EditAccount"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            app:cornerRadius="40px" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="150dp"
+            android:layout_height="130dp"
+            android:backgroundTint="#F5E8C7"
+            android:gravity="start|top"
+            android:text="Logout"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            app:cornerRadius="40px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="133dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523">
+
+        <Button
+            android:id="@+id/btnRequests"
+            android:layout_width="150dp"
+            android:layout_height="130dp"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="#F5E8C7"
+            android:gravity="start|top"
+            android:text="Pending Requests"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            app:cornerRadius="40px" />
+
+        <Button
+            android:id="@+id/btnEvents"
+            android:layout_width="150dp"
+            android:layout_height="130dp"
+            android:backgroundTint="#F5E8C7"
+            android:gravity="start|top"
+            android:text="Incoming Events"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            app:cornerRadius="40px" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="#1E1E1E"
@@ -24,7 +97,7 @@
             android:id="@+id/bandLogo"
             android:layout_width="73dp"
             android:layout_height="55dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/icon_only" />
 
         <TextView
             android:id="@+id/txtBandName"
@@ -33,63 +106,6 @@
             android:text="Organizer Name"
             android:textColor="#FFFFFF" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="328dp"
-        android:layout_height="146dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397">
-
-        <Button
-            android:id="@+id/btnRequests"
-            android:layout_width="wrap_content"
-            android:layout_height="125dp"
-            android:backgroundTint="#F5E8C7"
-            android:text="Pending Requests"
-            android:textColor="#000000"/>
-
-        <Button
-            android:id="@+id/btnEvents"
-            android:layout_width="165dp"
-            android:layout_height="122dp"
-            android:backgroundTint="#F5E8C7"
-            android:text="Incoming Events"
-            android:textColor="#000000"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="323dp"
-        android:layout_height="147dp"
-        android:layout_marginTop="2dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.067">
-
-        <Button
-            android:id="@+id/btnEditAcc"
-            android:layout_width="160dp"
-            android:layout_height="121dp"
-            android:backgroundTint="#F5E8C7"
-            android:text="EditAccount"
-            android:textColor="#000000"/>
-
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="160dp"
-            android:layout_height="121dp"
-            android:backgroundTint="#F5E8C7"
-            android:text="Logout"
-            android:textColor="#000000"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
