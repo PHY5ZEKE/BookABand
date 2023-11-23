@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#393939"
+    android:orientation="vertical"
+    tools:context=".CreateBand">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="#393939"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="353dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/lavender_border"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Click to upload image"
+                android:textAlignment="center"
+                android:textColor="#F5E8C7"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/uploadImage"
+                android:layout_width="155dp"
+                android:layout_height="132dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/upload" />
+
+            <EditText
+                android:id="@+id/uploadBandName"
+                style="@android:style/Widget.Holo.Light.AutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rounded_edittext_background"
+                android:gravity="start|center_vertical"
+                android:hint="Band Name"
+                android:padding="16dp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/uploadEmail"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext_background"
+                android:gravity="start|center_vertical"
+                android:hint="Email"
+                android:padding="16dp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/uploadGenre"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext_background"
+                android:gravity="start|center_vertical"
+                android:hint="Genre"
+                android:padding="16dp"
+                android:textColor="@color/black" />
+
+            <!-- New EditText for Description -->
+            <EditText
+                android:id="@+id/uploadDescription"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext_background"
+                android:gravity="start|center_vertical"
+                android:hint="Description"
+                android:padding="16dp"
+                android:textColor="@color/black" />
+
+            <!-- New EditText for Price Range -->
+            <EditText
+                android:id="@+id/uploadPriceRange"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext_background"
+                android:gravity="start|center_vertical"
+                android:hint="Price Range"
+                android:padding="16dp"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#818FB4"
+                android:text="Save"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</ScrollView>

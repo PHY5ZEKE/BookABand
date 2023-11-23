@@ -27,6 +27,7 @@ class BandDashboard : AppCompatActivity() {
 
         val buttonLogout: Button = findViewById(R.id.btnLogout)
         val buttonRequest: Button = findViewById(R.id.btnRequests)
+        val buttonEditBand: Button = findViewById(R.id.btnEditAcc)
 
         buttonLogout.setOnClickListener {
             val intent = Intent(this, Landing::class.java)
@@ -37,6 +38,10 @@ class BandDashboard : AppCompatActivity() {
             val intent = Intent(this, MyBookingsBand::class.java)
             startActivity(intent)
 
+        }
+        buttonEditBand.setOnClickListener{
+            val intent = Intent(this, EditBand::class.java)
+            startActivity(intent)
         }
 
 
