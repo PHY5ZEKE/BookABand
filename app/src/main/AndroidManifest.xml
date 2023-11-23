@@ -15,6 +15,9 @@
         android:theme="@style/Theme.BookABand"
         tools:targetApi="31">
         <activity
+            android:name=".RequestDetailsUser"
+            android:exported="false" />
+        <activity
             android:name=".EditUser"
             android:exported="false" />
         <activity
