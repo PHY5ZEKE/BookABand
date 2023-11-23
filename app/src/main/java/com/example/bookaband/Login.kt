@@ -78,12 +78,15 @@ class Login : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists() && snapshot.hasChildren()) {
                         // User has stored data, navigate to UserDashboard
+
+
                         val intent = Intent(this@Login, BandDashboard::class.java)
                         startActivity(intent)
+
                     } else {
                         // User doesn't have stored data or has empty data, navigate to CreateUser
                         // Display toast if the reference data is not under "Band Data"
-                        val bandReference = FirebaseDatabase.getInstance().getReference("User Data").child(userId)
+                        val bandReference = FirebaseDatabase.getInstance().getReference("Band Data").child(userId)
                         bandReference.addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onDataChange(userSnapshot: DataSnapshot) {
                                 if (userSnapshot.exists() || userSnapshot.hasChildren()) {

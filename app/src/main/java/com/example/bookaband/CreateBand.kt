@@ -114,9 +114,8 @@ class CreateBand : AppCompatActivity() {
                 val userUid = user.uid
                 val bandData = BandData(userUid, name, email, genre, desc, priceFloat, imageURL)
 
-                val currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().time)
+
                 FirebaseDatabase.getInstance().getReference("Band Data").child(userUid)
-                    .child(currentDate)
                     .setValue(bandData)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {

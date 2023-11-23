@@ -108,9 +108,8 @@ class CreateUser : AppCompatActivity() {
             val userUid = user.uid
             val userData = User(userUid, name, contact, desc, imageURL)
 
-            val currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().time)
+
             FirebaseDatabase.getInstance().getReference("User Data").child(userUid)
-                .child(currentDate)
                 .setValue(userData)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
