@@ -65,6 +65,11 @@ class CreateUser : AppCompatActivity() {
     }
 
     fun saveData() {
+        if (uri == null) {
+            Toast.makeText(this, "Image is required.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val storageReference = FirebaseStorage.getInstance().reference.child("User Pfp")
             .child(uri?.lastPathSegment.toString())
         val builder = AlertDialog.Builder(this)
@@ -84,22 +89,29 @@ class CreateUser : AppCompatActivity() {
             }
             .addOnFailureListener { e ->
                 dialog.dismiss()
+                Toast.makeText(this, "Failed to upload image.", Toast.LENGTH_SHORT).show()
             }
     }
 
     fun uploadData() {
         val currentUser = firebaseAuth.currentUser
         currentUser?.let { user ->
-            val name = uploadName.text.toString()
-            val contact = uploadContact.text.toString()
-            val desc = uploadUserDescription.text.toString()
+            val name = uploadName.text.toString().trim()
+            val contact = uploadContact.text.toString().trim()
+            val desc = uploadUserDescription.text.toString().trim()
+
+            if (name.isEmpty() || contact.isEmpty() || desc.isEmpty()) {
+                Toast.makeText(this, "All fields are required.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
             val userUid = user.uid
-            val bandData = User(userUid, name, contact , desc, imageURL)
+            val userData = User(userUid, name, contact, desc, imageURL)
 
             val currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().time)
             FirebaseDatabase.getInstance().getReference("User Data").child(userUid)
                 .child(currentDate)
-                .setValue(bandData)
+                .setValue(userData)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
@@ -107,7 +119,7 @@ class CreateUser : AppCompatActivity() {
                     }
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Failed to save data: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
         }
     }

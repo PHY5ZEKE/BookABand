@@ -66,8 +66,12 @@ class CreateBand : AppCompatActivity() {
             saveData()
         }
     }
-
     fun saveData() {
+        if (uri == null) {
+            Toast.makeText(this, "Image is required.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val storageReference = FirebaseStorage.getInstance().reference.child("Band Images")
             .child(uri?.lastPathSegment.toString())
         val builder = AlertDialog.Builder(this)
@@ -87,33 +91,50 @@ class CreateBand : AppCompatActivity() {
             }
             .addOnFailureListener { e ->
                 dialog.dismiss()
+                Toast.makeText(this, "Failed to upload image.", Toast.LENGTH_SHORT).show()
             }
     }
 
     fun uploadData() {
         val currentUser = firebaseAuth.currentUser
         currentUser?.let { user ->
-            val name = uploadBandName.text.toString()
-            val email = uploadEmail.text.toString()
-            val genre = uploadGenre.text.toString()
-            val desc = uploadDescription.text.toString()
-            val price = uploadPriceRange.text.toString().toFloat()
-            val userUid = user.uid
-            val bandData = BandData(userUid, name, email, genre, desc, price, imageURL)
+            val name = uploadBandName.text.toString().trim()
+            val email = uploadEmail.text.toString().trim()
+            val genre = uploadGenre.text.toString().trim()
+            val desc = uploadDescription.text.toString().trim()
+            val price = uploadPriceRange.text.toString().trim()
 
-            val currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().time)
-            FirebaseDatabase.getInstance().getReference("Band Data").child(userUid)
-                .child(currentDate)
-                .setValue(bandData)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
-                        finish()
+            if (name.isEmpty() || email.isEmpty() || genre.isEmpty() || desc.isEmpty() || price.isEmpty()) {
+                Toast.makeText(this, "All fields are required.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            try {
+                val priceFloat = price.toFloat()
+                val userUid = user.uid
+                val bandData = BandData(userUid, name, email, genre, desc, priceFloat, imageURL)
+
+                val currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().time)
+                FirebaseDatabase.getInstance().getReference("Band Data").child(userUid)
+                    .child(currentDate)
+                    .setValue(bandData)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
                     }
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
-                }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(this, "Failed to save data: ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
+            } catch (e: NumberFormatException) {
+                Toast.makeText(this, "Invalid price format.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
+
+
+
+
+
 }
