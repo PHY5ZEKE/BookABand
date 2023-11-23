@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#393939"
-    >
+    android:background="#393939">
 
+    <!-- Top LinearLayout -->
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         android:background="#1E1E1E"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,70 +28,82 @@
             android:layout_height="55dp"
             tools:srcCompat="@drawable/icon_only" />
 
+        <!-- TextView -->
         <TextView
             android:id="@+id/txtBandName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Organizer Name"
-
             android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:backgroundTint="#818FB4"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout5"
+    <!-- ScrollView wrapping the content -->
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout4"
         app:layout_constraintVertical_bias="0.027">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search"
-            android:layout_width="360dp"
+        <!-- Your existing content inside ScrollView -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textColor="#000000"
-            android:background="@drawable/rounded_edittext_background"
-            android:focusable="false"
-            app:closeIcon="@drawable/baseline_add_24"
-            app:iconifiedByDefault="false"
-            app:queryHint="Search..."
-            app:searchHintIcon="@null"
-            app:searchIcon="@drawable/baseline_add_24" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <!-- LinearLayout containing SearchView -->
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="397dp"
-        android:layout_height="446dp"
-        android:layout_below="@id/search"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btnBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-        app:layout_constraintVertical_bias="0.0" />
+                <!-- Your existing SearchView -->
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search"
+                    android:layout_width="360dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#000000"
+                    android:background="@drawable/rounded_edittext_background"
+                    android:focusable="false"
+                    app:closeIcon="@drawable/baseline_add_24"
+                    app:iconifiedByDefault="false"
+                    app:queryHint="Search..."
+                    app:searchHintIcon="@null"
+                    app:searchIcon="@drawable/baseline_add_24" />
+            </LinearLayout>
+
+            <!-- RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="368dp"
+                android:layout_height="489dp"
+                android:layout_below="@id/search"
+                android:scrollbars="vertical"
+                tools:ignore="NotSibling" />
+
+            <!-- Back Button -->
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
