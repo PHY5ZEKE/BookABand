@@ -73,7 +73,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
 
-                <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
     </application>
