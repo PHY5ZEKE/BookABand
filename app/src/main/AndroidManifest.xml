@@ -26,9 +26,7 @@
         <activity
             android:name=".RequestDetailsBand"
             android:exported="false" />
-        <activity
-            android:name=".EditRequest"
-            android:exported="false" />
+        
         <activity
             android:name=".RequestDetailsUser"
             android:exported="false" />
@@ -68,9 +66,7 @@
         <activity
             android:name=".CreateBand"
             android:exported="false" />
-        <activity
-            android:name=".AccountType"
-            android:exported="false" />
+
         <activity
             android:name=".Login"
             android:exported="false" />
@@ -82,10 +78,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
             </intent-filter>
         </activity>
     </application>
