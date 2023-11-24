@@ -35,10 +35,6 @@ class RequestDetailsUser : AppCompatActivity() {
       //Buttons
         val goBackToRequestsUser: Button = findViewById(R.id.btnBack)
         val cancelRequest: Button = findViewById(R.id.btnCancel)
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 
         // Populate the TextViews with labels and data from the BookingData object
