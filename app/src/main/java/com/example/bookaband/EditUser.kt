@@ -56,7 +56,8 @@ class EditUser : AppCompatActivity() {
         uploadName = findViewById(R.id.uploadName)
         uploadContact = findViewById(R.id.uploadContact)
         uploadUserDescription = findViewById(R.id.uploadUserDescription)
-
+        uploadImage = findViewById(R.id.uploadPfp)
+        uploadButton = findViewById(R.id.saveUser)
 
         populateUI()
 

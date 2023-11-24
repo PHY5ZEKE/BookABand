@@ -61,6 +61,7 @@ class UserDashboard : AppCompatActivity() {
         var btnLogout: Button = findViewById(R.id.btnLogout)
         var btnBook:Button = findViewById(R.id.btnBookABand)
         var btnRequests:Button = findViewById(R.id.btnRequests)
+        var btnEditUser:Button = findViewById(R.id.btnEditAcc)
 
         btnLogout.setOnClickListener{
             val intent = Intent(this, Landing::class.java)
@@ -74,6 +75,10 @@ class UserDashboard : AppCompatActivity() {
         }
         btnRequests.setOnClickListener{
             val intent = Intent(this, MyBookingsActivity::class.java)
+            startActivity(intent)
+        }
+        btnEditUser.setOnClickListener{
+            val intent = Intent(this, EditUser::class.java)
             startActivity(intent)
         }
 

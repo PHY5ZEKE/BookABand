@@ -5,20 +5,35 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.cardview.widget.CardView // Import CardView
+import androidx.cardview.widget.CardView
+import android.widget.ImageView
+import java.io.Serializable
 
-class BookingAdapter(private val bookingList: List<BookingData>) : RecyclerView.Adapter<BookingAdapter.ViewHolder>() {
+class BookingAdapter(
+    private val bookingList: List<BookingData>,
+    private val onItemClick: (BookingData) -> Unit
+) : RecyclerView.Adapter<BookingAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val cardView: CardView = itemView.findViewById(R.id.bookingCardView)
         val eventNameTextView: TextView = itemView.findViewById(R.id.eventNameTextView)
         val locationTextView: TextView = itemView.findViewById(R.id.locationTextView)
         val dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
         val timeTextView: TextView = itemView.findViewById(R.id.timeTextView)
+
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick(bookingList[position])
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.booking_item, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.booking_item, parent, false)
         return ViewHolder(itemView)
     }
 
