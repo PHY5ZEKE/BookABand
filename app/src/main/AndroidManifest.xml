@@ -15,6 +15,9 @@
         android:theme="@style/Theme.BookABand"
         tools:targetApi="31">
         <activity
+            android:name=".RequestDetailsBand"
+            android:exported="false" />
+        <activity
             android:name=".EditRequest"
             android:exported="false" />
         <activity

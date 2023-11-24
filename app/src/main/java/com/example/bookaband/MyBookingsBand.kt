@@ -36,8 +36,8 @@ class MyBookingsBand : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.myBookingsRecyclerView)
         bookingList = mutableListOf()
-        bookingAdapter = BookingAdapter(bookingList) { selectedBooking ->
-            showBookingDetails(selectedBooking)
+        bookingAdapter = BookingAdapter(bookingList) { selectedBookingUser ->
+            showBookingDetails(selectedBookingUser)
         }
 
         recyclerView.adapter = bookingAdapter
@@ -106,12 +106,12 @@ class MyBookingsBand : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    private fun showBookingDetails(selectedBooking: BookingData) {
+    private fun showBookingDetails(selectedBookingUser: BookingData) {
         // Implement the logic to show the details of the selected booking.
         // You can use a dialog, another activity, or any other UI component to display the details.
         // For example, you can create a new activity and pass the details using Intent.
-        val intent = Intent(this, BandDetails::class.java)
-        intent.putExtra("bookingDetails", selectedBooking)
+        val intent = Intent(this, RequestDetailsBand::class.java)
+        intent.putExtra("bookingDetails", selectedBookingUser)
         startActivity(intent)
     }
 }
