@@ -111,7 +111,8 @@
             android:id="@+id/bandLogo"
             android:layout_width="73dp"
             android:layout_height="55dp"
-            app:srcCompat="@drawable/icon_only" />
+            app:srcCompat="@drawable/icon_only"
+            android:layout_marginLeft="20dp"/>
 
         <TextView
             android:id="@+id/txtBandName"

@@ -7,9 +7,6 @@ import android.widget.Button
 import android.widget.TextView
 
 class Landing : AppCompatActivity() {
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -31,8 +28,5 @@ class Landing : AppCompatActivity() {
             val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }
-
-
-
     }
 }
