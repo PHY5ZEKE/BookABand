@@ -3,6 +3,7 @@ package com.example.bookaband
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -25,9 +26,9 @@ class BandDashboard : AppCompatActivity() {
         currentUser = auth.currentUser!!
         databaseReference = FirebaseDatabase.getInstance().getReference("Band Data")
 
-        val buttonLogout: Button = findViewById(R.id.btnLogout)
-        val buttonRequest: Button = findViewById(R.id.btnRequests)
-        val buttonEditBand: Button = findViewById(R.id.btnEditAcc)
+        val buttonLogout: ImageButton = findViewById(R.id.btnLogout)
+        val buttonRequest: ImageButton = findViewById(R.id.btnRequests)
+        val buttonEditBand: ImageButton = findViewById(R.id.btnEditAcc)
 
         buttonLogout.setOnClickListener {
             val intent = Intent(this, Landing::class.java)

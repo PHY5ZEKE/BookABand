@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -58,10 +59,10 @@ class UserDashboard : AppCompatActivity() {
         })
 
 
-        var btnLogout: Button = findViewById(R.id.btnLogout)
+        var btnLogout: ImageButton = findViewById(R.id.btnLogout)
         var btnBook:Button = findViewById(R.id.btnBookABand)
-        var btnRequests:Button = findViewById(R.id.btnRequests)
-        var btnEditUser:Button = findViewById(R.id.btnEditAcc)
+        var btnRequests:ImageButton = findViewById(R.id.btnRequests)
+        var btnEditUser:ImageButton = findViewById(R.id.btnEditAcc)
 
         btnLogout.setOnClickListener{
             val intent = Intent(this, Landing::class.java)

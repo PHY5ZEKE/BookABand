@@ -35,7 +35,6 @@ class RequestDetailsUser : AppCompatActivity() {
       //Buttons
         val goBackToRequestsUser: Button = findViewById(R.id.btnBack)
         val cancelRequest: Button = findViewById(R.id.btnCancel)
-        val editRequest: Button = findViewById(R.id.btnEdit)
 
 
 
