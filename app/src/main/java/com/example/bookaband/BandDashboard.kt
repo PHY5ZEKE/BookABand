@@ -29,6 +29,7 @@ class BandDashboard : AppCompatActivity() {
         val buttonLogout: ImageButton = findViewById(R.id.btnLogout)
         val buttonRequest: ImageButton = findViewById(R.id.btnRequests)
         val buttonEditBand: ImageButton = findViewById(R.id.btnEditAcc)
+        val buttonEvents: ImageButton = findViewById(R.id.btnEvents)
 
         buttonLogout.setOnClickListener {
             val intent = Intent(this, Landing::class.java)
@@ -44,6 +45,11 @@ class BandDashboard : AppCompatActivity() {
             val intent = Intent(this, EditBand::class.java)
             startActivity(intent)
         }
+        buttonEvents.setOnClickListener{
+            val intent = Intent(this, EventsBand::class.java)
+            startActivity(intent)
+        }
+
 
 
         // Assuming userUid is the UID of the current logged-in band

@@ -63,9 +63,15 @@ class UserDashboard : AppCompatActivity() {
         var btnBook:Button = findViewById(R.id.btnBookABand)
         var btnRequests:ImageButton = findViewById(R.id.btnRequests)
         var btnEditUser:ImageButton = findViewById(R.id.btnEditAcc)
+        var btnEvents:ImageButton = findViewById(R.id.btnEvents)
 
         btnLogout.setOnClickListener{
             val intent = Intent(this, Landing::class.java)
+            startActivity(intent)
+            finish()
+        }
+        btnEvents.setOnClickListener{
+            val intent = Intent(this, EventUser::class.java)
             startActivity(intent)
             finish()
         }
