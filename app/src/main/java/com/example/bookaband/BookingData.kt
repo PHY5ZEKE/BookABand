@@ -5,6 +5,7 @@ import java.io.Serializable
 
 data class BookingData(
     val bandId: String,
+    val bandName: String,
     val eventName: String,
     val location: String,
     val date: String,
@@ -15,5 +16,5 @@ data class BookingData(
     val userContact: String
 ):Serializable {
     // Empty constructor
-    constructor() : this("", "", "", "", "", "", "", "", "")
+    constructor() : this("", "", "", "", "", "", "", "", "","")
 }

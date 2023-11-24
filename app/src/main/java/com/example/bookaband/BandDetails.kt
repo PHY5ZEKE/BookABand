@@ -162,14 +162,15 @@ class BandDetails : AppCompatActivity() {
 
                 val bookingData = BookingData(
                     bandId = bandDetails.userUid,
+                    bandName = bandDetails.name,
                     eventName = eventName,
                     location = location,
                     date = date,
                     time = time,
                     userId = userId.toString(),
-                    userEmail = currentUserEmail,  // Pass user's email to BookingData
-                    userName = currentUserName,  // Pass user's name to BookingData
-                    userContact = currentUserContact  // Pass user's contact to BookingData
+                    userEmail = currentUserEmail,
+                    userName = currentUserName,
+                    userContact = currentUserContact
                 )
 
                 val databaseReference = FirebaseDatabase.getInstance().getReference("Bookings")
