@@ -14,13 +14,19 @@ import android.widget.TimePicker
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.util.Calendar
-
 
 class BandDetails : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var currentUserContact: String
+    private lateinit var currentUserName: String
+    private lateinit var currentUserEmail: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_band_details)
@@ -42,21 +48,44 @@ class BandDetails : AppCompatActivity() {
         val dateEditText: EditText = findViewById(R.id.dateEditText)
         val timeEditText: EditText = findViewById(R.id.timeEditText)
         val eventNameEditText: EditText = findViewById(R.id.eventNameEditText)
-        val LocationEditText: EditText = findViewById(R.id.locationEditText)
+        val locationEditText: EditText = findViewById(R.id.locationEditText)
 
-        // Set values to TextViews and ImageView
-        nameTextView.text = bandDetails.name
-        genreTextView.text = bandDetails.genre
-        priceTextView.text = "$${bandDetails.price}"
-        descriptionTextView.text = bandDetails.desc
-        emailTextView.text = bandDetails.email
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val userId = currentUser.uid
+            currentUserEmail = currentUser.email ?: ""
 
-        // Load image using Glide (ensure to handle null imageURL)
-        Glide.with(this)
-            .load(bandDetails.imageURL)
-            .into(imageView)
+            // Retrieve user data from the "UserData" node
+            val userDataReference = FirebaseDatabase.getInstance().getReference("User Data").child(userId)
+            userDataReference.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        currentUserName = snapshot.child("name").getValue(String::class.java) ?: ""
+                        currentUserContact =
+                            snapshot.child("contact").getValue(String::class.java) ?: ""
 
-        btnBack.setOnClickListener{
+                        // Set values to TextViews and ImageView
+                        nameTextView.text = bandDetails.name
+                        genreTextView.text = bandDetails.genre
+                        priceTextView.text = "$${bandDetails.price}"
+                        descriptionTextView.text = bandDetails.desc
+                        emailTextView.text = currentUserEmail // Display the user's email
+
+                        // Load image using Glide (ensure to handle null imageURL)
+                        Glide.with(this@BandDetails)
+                            .load(bandDetails.imageURL)
+                            .into(imageView)
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Handle the error
+                }
+            })
+        }
+
+        btnBack.setOnClickListener {
             val intent = Intent(this, BandList::class.java)
             startActivity(intent)
         }
@@ -68,6 +97,7 @@ class BandDetails : AppCompatActivity() {
             showTimePicker()
         }
     }
+
     private fun showDatePicker() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -105,12 +135,7 @@ class BandDetails : AppCompatActivity() {
         timePickerDialog.show()
     }
 
-
     // Method to handle the "Book Band" button click
-    // ...
-
-    // ...
-
     fun onBookBandClick(view: android.view.View) {
         val bandDetails: BandData = intent.getSerializableExtra("bandDetails") as BandData
         val userId = auth.currentUser?.uid
@@ -141,7 +166,10 @@ class BandDetails : AppCompatActivity() {
                     location = location,
                     date = date,
                     time = time,
-                    userId = userId.toString()
+                    userId = userId.toString(),
+                    userEmail = currentUserEmail,  // Pass user's email to BookingData
+                    userName = currentUserName,  // Pass user's name to BookingData
+                    userContact = currentUserContact  // Pass user's contact to BookingData
                 )
 
                 val databaseReference = FirebaseDatabase.getInstance().getReference("Bookings")
@@ -172,7 +200,4 @@ class BandDetails : AppCompatActivity() {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
         }
     }
-
-
-
 }

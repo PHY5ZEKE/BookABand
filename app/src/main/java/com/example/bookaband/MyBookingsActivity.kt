@@ -36,7 +36,7 @@ class MyBookingsActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.myBookingsRecyclerView)
         bookingList = mutableListOf()
-        bookingAdapter = BookingAdapter(bookingList){selectedBookingUser->showBookingDetailsUser(selectedBookingUser)}
+        bookingAdapter = BookingAdapter(bookingList)
 
         recyclerView.adapter = bookingAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)

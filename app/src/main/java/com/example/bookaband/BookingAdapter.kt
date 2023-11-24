@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.cardview.widget.CardView // Import CardView
 
-class BookingAdapter(private val bookingList: List<BookingData>,private val onItemClick: (User) -> Unit) : RecyclerView.Adapter<BookingAdapter.ViewHolder>() {
+class BookingAdapter(private val bookingList: List<BookingData>) : RecyclerView.Adapter<BookingAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val cardView: CardView = itemView.findViewById(R.id.bookingCardView)
