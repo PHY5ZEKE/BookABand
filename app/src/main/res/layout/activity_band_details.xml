@@ -11,24 +11,27 @@
 
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
         android:background="#1E1E1E"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:layout_marginLeft="20dp"
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/bandLogo"
-            android:layout_width="73dp"
-            android:layout_height="55dp"
-            tools:srcCompat="@drawable/icon_only" />
+            android:layout_width="60dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="20dp"
+            app:civ_border_color="#CCCCCC"
+            app:civ_border_width="1dp"
+            app:srcCompat="@drawable/icon_only" />
 
-        <!-- TextView -->
         <TextView
             android:id="@+id/txtBandName"
             android:layout_width="wrap_content"
@@ -42,39 +45,37 @@
         android:id="@+id/detailImageView"
         android:layout_width="100dp"
         android:layout_height="91dp"
+        android:layout_marginBottom="8dp"
         android:scaleType="centerCrop"
         android:src="@drawable/upload"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
-        app:layout_constraintHorizontal_bias="0.657"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.569" />
+        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/backButton"
-        android:layout_width="87dp"
-        android:layout_height="58dp"
+        android:layout_width="109dp"
+        android:layout_height="54dp"
         android:backgroundTint="#818FB4"
         android:padding="16dp"
         android:text="Back"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-        app:layout_constraintVertical_bias="0.473" />
+        app:layout_constraintVertical_bias="0.663" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="186dp"
         android:layout_height="117dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.477">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/detailNameTextView"
@@ -120,15 +121,14 @@
 
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="315dp"
-        android:layout_height="363dp"
-        android:gravity="center_horizontal"
+        android:layout_width="317dp"
+        android:layout_height="300dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.582">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.642">
 
         <TextView
             android:id="@+id/textView2"
@@ -212,16 +212,21 @@
             android:paddingLeft="16dp"
             android:textColor="#000000" />
 
-        <Button
-            android:id="@+id/bookBandButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:backgroundTint="#F5E8C7"
-            android:onClick="onBookBandClick"
-            android:text="Book Band"
-            android:textColor="#000000" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/bookBandButton"
+        android:layout_width="205dp"
+        android:layout_height="52dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#F5E8C7"
+        android:onClick="onBookBandClick"
+        android:text="Book Band"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

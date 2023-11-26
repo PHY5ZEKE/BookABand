@@ -20,7 +20,6 @@
             android:layout_width="353dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/lavender_border"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="20dp">
@@ -35,8 +34,8 @@
 
             <ImageView
                 android:id="@+id/uploadImage"
-                android:layout_width="155dp"
-                android:layout_height="132dp"
+                android:layout_width="128dp"
+                android:layout_height="121dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/upload" />
