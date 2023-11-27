@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.google.firebase.FirebaseApp
 
 class Landing : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing)
+        FirebaseApp.initializeApp(this)
 
         var logUser: Button = findViewById(R.id.btnLogUser)
         var logBand: Button = findViewById(R.id.btnLogBand)

@@ -16,7 +16,9 @@
         android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="96dp"
+        android:backgroundTint="#F5E8C7"
         android:text="Back"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.324"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,8 +26,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="290dp"
-        android:layout_height="255dp"
+        android:layout_width="306dp"
+        android:layout_height="321dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +39,7 @@
             android:id="@+id/dateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Sample"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -45,6 +48,7 @@
             android:id="@+id/userNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Sample"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -53,6 +57,7 @@
             android:id="@+id/timeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Sample"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -61,6 +66,7 @@
             android:id="@+id/locationTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Sample"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -69,6 +75,7 @@
             android:id="@+id/bandNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Sample"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
@@ -78,6 +85,7 @@
             android:id="@+id/userEmailTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Sample"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -86,6 +94,7 @@
             android:id="@+id/eventNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Sample"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
@@ -95,6 +104,7 @@
             android:id="@+id/userContactTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Sample"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -106,7 +116,9 @@
         android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="96dp"
+        android:backgroundTint="#F5E8C7"
         android:text="Remove"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.181"

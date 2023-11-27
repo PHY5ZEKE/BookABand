@@ -179,6 +179,20 @@ class BandDetails : AppCompatActivity() {
                 if (bookingId != null) {
                     databaseReference.child(bookingId).setValue(bookingData)
 
+                    // Send notification to the band
+                    val notificationReference = FirebaseDatabase.getInstance().getReference("Notifications").child(bandDetails.userUid)
+                    val notificationId = notificationReference.push().key
+
+                    val notificationData = mapOf(
+                        "title" to "New Booking Request",
+                        "message" to "You have a new booking request for $eventName",
+                        // Add more data if needed
+                    )
+
+                    if (notificationId != null) {
+                        notificationReference.child(notificationId).setValue(notificationData)
+                    }
+
                     // Clear input fields
                     eventNameEditText.text.clear()
                     locationEditText.text.clear()

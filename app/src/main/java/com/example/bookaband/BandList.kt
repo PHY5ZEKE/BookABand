@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -64,7 +65,7 @@ class BandList : AppCompatActivity() {
         })
 
 
-
+        val btnSearch: SearchView = findViewById(R.id.search)
         val btnBack: Button = findViewById(R.id.btnBack)
         recyclerView = findViewById(R.id.recyclerView)
         bandList = mutableListOf()
@@ -80,6 +81,17 @@ class BandList : AppCompatActivity() {
             val intent = Intent(this, UserDashboard::class.java)
             startActivity(intent)
         }
+        btnSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { performSearch(it) }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { performSearch(it) }
+                return false
+            }
+        })
 
     }
 
@@ -109,7 +121,20 @@ class BandList : AppCompatActivity() {
         })
     }
 
+    private fun performSearch(query: String) {
+        val searchQuery = query.lowercase()
 
+        val filteredList = bandList.filter { band ->
+            band.name.lowercase().contains(searchQuery)
+        }
+
+        bandAdapter = BandAdapter(filteredList) { selectedBand ->
+            showBandDetails(selectedBand)
+        }
+
+        recyclerView.adapter = bandAdapter
+        bandAdapter.notifyDataSetChanged()
+    }
 
     private fun showBandDetails(selectedBand: BandData) {
         // Implement the logic to show the details of the selected band.
