@@ -16,9 +16,21 @@
         android:orientation="vertical"
         android:padding="8dp">
 
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="52dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.831"
+            app:layout_constraintStart_toEndOf="@+id/locationTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.487"
+            app:srcCompat="@drawable/listmusic" />
+
         <TextView
             android:id="@+id/eventNameTextView"
-            android:layout_width="119dp"
+            android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:text="Event"
             android:textColor="#000000"
@@ -33,7 +45,7 @@
 
         <TextView
             android:id="@+id/locationTextView"
-            android:layout_width="101dp"
+            android:layout_width="wrap_content"
             android:layout_height="19dp"
             android:layout_marginTop="2dp"
             android:text="location"
@@ -46,8 +58,9 @@
 
         <TextView
             android:id="@+id/dateTextView"
-            android:layout_width="99dp"
+            android:layout_width="wrap_content"
             android:layout_height="21dp"
+            android:layout_marginStart="8dp"
             android:text="date"
             android:textColor="#090909"
             android:textSize="12sp"
@@ -56,7 +69,7 @@
 
         <TextView
             android:id="@+id/timeTextView"
-            android:layout_width="53dp"
+            android:layout_width="wrap_content"
             android:layout_height="19dp"
             android:layout_marginTop="2dp"
             android:text="time"

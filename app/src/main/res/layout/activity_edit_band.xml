@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout      xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,105 +8,177 @@
     android:orientation="vertical"
     tools:context=".CreateBand">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        app:cardBackgroundColor="#393939"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="20dp">
+    <LinearLayout
+        android:layout_width="264dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="28dp"
+        android:gravity="clip_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="353dp"
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="59dp"
+            android:layout_height="47dp"
+            app:srcCompat="@drawable/icon_only" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="68dp"
+            android:layout_height="21dp"
+            android:layout_weight="1"
+            android:text="Profile"
+            android:textColor="#F5E8C7"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="160dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="3dp"
+        android:text="Click to upload image"
+        android:textAlignment="center"
+        android:textColor="#F5E8C7"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadImage"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <ImageView
+        android:id="@+id/uploadImage"
+        android:layout_width="90dp"
+        android:layout_height="84dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/upload"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.585" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="176dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#818FB4"
+        android:text="Save"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+        app:layout_constraintVertical_bias="0.686" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="327dp"
+        android:layout_height="447dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.746">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:text="Band Name"
+            android:textColor="#F5E8C7" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Click to upload image"
-                android:textAlignment="center"
-                android:textColor="#F5E8C7"
-                android:textSize="20sp" />
+        <EditText
+            android:id="@+id/uploadBandName"
+            style="@android:style/Widget.Holo.Light.AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:gravity="start|center_vertical"
+            android:hint="Band Name"
+            android:padding="16dp"
+            android:textColor="@color/black" />
 
-            <ImageView
-                android:id="@+id/uploadImage"
-                android:layout_width="128dp"
-                android:layout_height="121dp"
-                android:layout_marginTop="10dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/upload" />
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="#F5E8C7" />
 
-            <EditText
-                android:id="@+id/uploadBandName"
-                style="@android:style/Widget.Holo.Light.AutoCompleteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/rounded_edittext_background"
-                android:gravity="start|center_vertical"
-                android:hint="Band Name"
-                android:padding="16dp"
-                android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/uploadEmail"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:gravity="start|center_vertical"
+            android:hint="Email"
+            android:padding="16dp"
+            android:textColor="@color/black" />
 
-            <EditText
-                android:id="@+id/uploadEmail"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_edittext_background"
-                android:gravity="start|center_vertical"
-                android:hint="Email"
-                android:padding="16dp"
-                android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Genre"
+            android:textColor="#F5E8C7" />
 
-            <EditText
-                android:id="@+id/uploadGenre"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_edittext_background"
-                android:gravity="start|center_vertical"
-                android:hint="Genre"
-                android:padding="16dp"
-                android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/uploadGenre"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:gravity="start|center_vertical"
+            android:hint="Genre"
+            android:padding="16dp"
+            android:textColor="@color/black" />
 
-            <!-- New EditText for Description -->
-            <EditText
-                android:id="@+id/uploadDescription"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_edittext_background"
-                android:gravity="start|center_vertical"
-                android:hint="Description"
-                android:padding="16dp"
-                android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price Range"
+            android:textColor="#F5E8C7" />
 
-            <!-- New EditText for Price Range -->
-            <EditText
-                android:id="@+id/uploadPriceRange"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_edittext_background"
-                android:gravity="start|center_vertical"
-                android:hint="Price Range"
-                android:padding="16dp"
-                android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/uploadPriceRange"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:gravity="start|center_vertical"
+            android:hint="Price Range"
+            android:padding="16dp"
+            android:textColor="@color/black" />
 
-            <Button
-                android:id="@+id/saveButton"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#818FB4"
-                android:text="Save"
-                android:textSize="18sp"
-                app:cornerRadius="20dp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</ScrollView>
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="#F5E8C7" />
+
+        <EditText
+            android:id="@+id/uploadDescription"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:gravity="start|center_vertical"
+            android:hint="Description"
+            android:padding="16dp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -179,7 +179,6 @@ class BandDetails : AppCompatActivity() {
                 if (bookingId != null) {
                     databaseReference.child(bookingId).setValue(bookingData)
 
-                    // Send notification to the band
                     val notificationReference = FirebaseDatabase.getInstance().getReference("Notifications").child(bandDetails.userUid)
                     val notificationId = notificationReference.push().key
 
@@ -190,6 +189,7 @@ class BandDetails : AppCompatActivity() {
                     )
 
                     if (notificationId != null) {
+                        // Store notification under the specific band's user ID
                         notificationReference.child(notificationId).setValue(notificationData)
                     }
 

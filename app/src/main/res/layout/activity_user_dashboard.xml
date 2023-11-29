@@ -8,10 +8,77 @@
     tools:context=".UserDashboard">
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="366dp"
+        android:layout_height="398dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="199dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnRequests"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+
+                android:backgroundTint="#393939"
+                android:scaleType="centerCrop"
+                android:src="@drawable/list"
+                app:cornerRadius="40px" />
+
+            <ImageButton
+                android:id="@+id/btnEvents"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+
+                android:backgroundTint="#393939"
+                android:scaleType="centerCrop"
+                android:src="@drawable/incoming"
+                app:cornerRadius="40px" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="359dp"
+            android:layout_height="182dp"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnEditAcc"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+
+                android:backgroundTint="#393939"
+                android:scaleType="centerCrop"
+                android:src="@drawable/edit"
+                app:cornerRadius="40px" />
+
+            <ImageButton
+                android:id="@+id/btnLogout"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+
+                android:backgroundTint="#393939"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logout"
+                app:cornerRadius="40px" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:background="#1E1E1E"
+        android:layout_height="120dp"
+        android:background="#393939"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,8 +90,8 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/bandLogo"
             android:layout_width="60dp"
-            android:layout_height="54dp"
-            android:layout_marginLeft="20dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="45dp"
             android:layout_marginRight="10dp"
             app:civ_border_color="#CCCCCC"
             app:civ_border_width="1dp"
@@ -39,73 +106,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout10"
-        android:layout_width="307dp"
-        android:layout_height="322dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="158dp"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/btnRequests"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-
-                android:backgroundTint="#393939"
-                android:scaleType="centerCrop"
-                android:src="@drawable/list"
-                app:cornerRadius="40px" />
-
-            <ImageButton
-                android:id="@+id/btnEvents"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-
-                android:backgroundTint="#393939"
-                android:scaleType="centerCrop"
-                android:src="@drawable/incoming"
-                app:cornerRadius="40px" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="158dp"
-            android:layout_marginTop="2dp"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/btnEditAcc"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-
-                android:backgroundTint="#393939"
-                android:scaleType="centerCrop"
-                android:src="@drawable/edit"
-                app:cornerRadius="40px" />
-
-            <ImageButton
-                android:id="@+id/btnLogout"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-
-                android:backgroundTint="#393939"
-                android:scaleType="centerCrop"
-                android:src="@drawable/logout"
-                app:cornerRadius="40px" />
-        </LinearLayout>
-    </LinearLayout>
-
     <Button
         android:id="@+id/btnBookABand"
         android:layout_width="208dp"
@@ -114,7 +114,7 @@
         android:backgroundTint="#435585"
         android:text="Book a Band"
         android:textColor="#F5E8C7"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
