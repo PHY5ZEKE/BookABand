@@ -50,7 +50,7 @@ class RequestDetailsBand : AppCompatActivity() {
         userEmailTextView.text = "Email: ${selectedBookingUser.userEmail}"
 
         goBackToRequestsUser.setOnClickListener{
-            val intent = Intent(this, MyBookingsActivity::class.java)
+            val intent = Intent(this, MyBookingsBand::class.java)
             startActivity(intent)
         }
         cancelRequest.setOnClickListener {

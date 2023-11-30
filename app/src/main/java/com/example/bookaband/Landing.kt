@@ -1,5 +1,6 @@
 package com.example.bookaband
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.widget.TextView
 import com.google.firebase.FirebaseApp
 
 class Landing : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -16,7 +18,7 @@ class Landing : AppCompatActivity() {
 
         var logUser: Button = findViewById(R.id.btnLogUser)
         var logBand: Button = findViewById(R.id.btnLogBand)
-        var txtReg: TextView = findViewById(R.id.txtRegisterLanding)
+        var txtReg: Button = findViewById(R.id.RegisterLanding)
 
         logUser.setOnClickListener{
             val intent = Intent(this, LoginUser::class.java)

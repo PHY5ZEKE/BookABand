@@ -3,6 +3,8 @@ package com.example.bookaband
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import com.example.bookaband.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -23,7 +25,7 @@ class SignUp : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.textView.setOnClickListener {
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, Landing::class.java)
             startActivity(intent)
         }
         binding.button.setOnClickListener {
@@ -50,6 +52,21 @@ class SignUp : AppCompatActivity() {
                 Toast.makeText(this, "Fields are empty!", Toast.LENGTH_SHORT).show()
             }
         }
+        // Define your spinner
+        val spinner: Spinner = findViewById(R.id.Access)
+
+// Prepare data (list of strings)
+        val data = listOf("", "Band", "User")
+
+// Create an ArrayAdapter using the string array and a default spinner layout
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, data)
+
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+// Apply the adapter to the spinner
+        spinner.adapter = adapter
+
     }
 
     private fun handleFirebaseException(exception: Exception?) {

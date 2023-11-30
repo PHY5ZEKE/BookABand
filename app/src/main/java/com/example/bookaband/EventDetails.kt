@@ -50,7 +50,7 @@ class EventDetails : AppCompatActivity() {
         userEmailTextView.text = "Email: ${selectedEvent.userEmail}"
 
         goBackToRequestsUser.setOnClickListener{
-            val intent = Intent(this, EventsBand::class.java)
+            val intent = Intent(this, EventUser::class.java)
             startActivity(intent)
         }
         cancelRequest.setOnClickListener {
