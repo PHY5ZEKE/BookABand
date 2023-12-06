@@ -11,11 +11,11 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No account yet?"
+        android:layout_marginBottom="12dp"
+        android:text="_____________  No account yet?   _____________"
         android:textColor="#F5E8C7"
         app:layout_constraintBottom_toTopOf="@+id/RegisterLanding"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -32,6 +32,7 @@
         android:id="@+id/RegisterLanding"
         android:layout_width="200dp"
         android:layout_height="47dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="#435585"
         android:fontFamily="@font/intermedium"
         android:shadowDx="30"
@@ -41,9 +42,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRegisterLanding"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnLogBand"
@@ -77,20 +76,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.775" />
-
-    <TextView
-        android:id="@+id/txtRegisterLanding"
-        android:layout_width="309dp"
-        android:layout_height="28dp"
-        android:text="__________________________________________________"
-        android:textAlignment="center"
-        android:textColor="#B8B8B8"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogUser"
-        app:layout_constraintVertical_bias="0.129" />
 
     <ImageView
         android:id="@+id/imageView"
