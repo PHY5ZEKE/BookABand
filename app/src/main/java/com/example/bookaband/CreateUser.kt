@@ -79,8 +79,8 @@ class CreateUser : AppCompatActivity() {
 
         // Validate contact
         val contact = uploadContact.text.toString().trim()
-        if (contact.isEmpty() || !contact.matches(Regex("\\d+"))) {
-            Toast.makeText(this, "Contact should contain only numbers.", Toast.LENGTH_SHORT).show()
+        if (contact.isEmpty() || contact.length != 11 || !contact.matches(Regex("\\d+"))) {
+            Toast.makeText(this, "Contact should be 11 characters and contain only numbers.", Toast.LENGTH_SHORT).show()
             return
         }
 

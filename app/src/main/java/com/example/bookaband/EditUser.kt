@@ -139,6 +139,24 @@ class EditUser : AppCompatActivity() {
             val contact = uploadContact.text.toString().trim()
             val desc = uploadUserDescription.text.toString().trim()
 
+            // Validate name
+            if (name.isEmpty() || name.length > 60) {
+                Toast.makeText(this, "Name is required and should be within 1-60 characters.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            // Validate contact
+            if (contact.isEmpty() || contact.length != 11 || !contact.matches(Regex("\\d+"))) {
+                Toast.makeText(this, "Contact should be 11 digits long and contain only numbers.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            // Validate description
+            if (desc.length > 150) {
+                Toast.makeText(this, "Description should be within 1-150 characters.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
 
             if (name.isEmpty() || contact.isEmpty() || desc.isEmpty()) {
                 Toast.makeText(this, "All fields are required.", Toast.LENGTH_SHORT).show()

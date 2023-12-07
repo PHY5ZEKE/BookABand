@@ -145,6 +145,44 @@ class EditBand : AppCompatActivity() {
             val desc = uploadDescription.text.toString().trim()
             val price = uploadPriceRange.text.toString().trim()
 
+            if (name.isEmpty() || name.length > 60) {
+                Toast.makeText(this, "Band name is required and should be within 1-60 characters.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            // Validate email format
+            if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(this, "Please enter a valid email address.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            // Validate genre
+            if (genre.length > 60) {
+                Toast.makeText(this, "Genre should be within 1-60 characters.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            // Validate description
+            if (desc.length > 150) {
+                Toast.makeText(this, "Description should be within 1-150 characters.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            // Validate price range
+            if (price.isEmpty()) {
+                Toast.makeText(this, "Price range is required.", Toast.LENGTH_SHORT).show()
+                return
+            }
+            try {
+                val priceFloat = price.toFloat()
+                if (priceFloat < 0) {
+                    Toast.makeText(this, "Price should be a positive number.", Toast.LENGTH_SHORT).show()
+                    return
+                }
+            } catch (e: NumberFormatException) {
+                Toast.makeText(this, "Invalid price format.", Toast.LENGTH_SHORT).show()
+                return
+            }
             if (name.isEmpty() || email.isEmpty() || genre.isEmpty() || desc.isEmpty() || price.isEmpty()) {
                 Toast.makeText(this, "All fields are required.", Toast.LENGTH_SHORT).show()
                 return

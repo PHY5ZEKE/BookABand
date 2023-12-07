@@ -152,6 +152,12 @@ class BandDetails : AppCompatActivity() {
 
         // Validate input fields
         if (eventName.isNotEmpty() && location.isNotEmpty() && date.isNotEmpty() && time.isNotEmpty()) {
+
+            if (eventName.length > 60 || location.length > 60) {
+                Toast.makeText(this, "Event name and location should be within 1-60 characters.", Toast.LENGTH_SHORT).show()
+                return
+            }
+
             val currentDate = Calendar.getInstance()
             val selectedDate = Calendar.getInstance()
             val dateParts = date.split("-")
