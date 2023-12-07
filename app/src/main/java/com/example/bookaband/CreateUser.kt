@@ -70,6 +70,27 @@ class CreateUser : AppCompatActivity() {
             return
         }
 
+        // Validate name
+        val name = uploadName.text.toString().trim()
+        if (name.isEmpty() || name.length > 60) {
+            Toast.makeText(this, "Name is required and should be within 1-60 characters.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Validate contact
+        val contact = uploadContact.text.toString().trim()
+        if (contact.isEmpty() || !contact.matches(Regex("\\d+"))) {
+            Toast.makeText(this, "Contact should contain only numbers.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Validate description
+        val desc = uploadUserDescription.text.toString().trim()
+        if (desc.isEmpty()||desc.length > 150) {
+            Toast.makeText(this, "Description should be within 1-150 characters.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val storageReference = FirebaseStorage.getInstance().reference.child("User Pfp")
             .child(uri?.lastPathSegment.toString())
         val builder = AlertDialog.Builder(this)

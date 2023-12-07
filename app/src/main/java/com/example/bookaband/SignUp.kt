@@ -33,14 +33,25 @@ class SignUp : AppCompatActivity() {
             val pass = binding.passET.text.toString()
             val confirmPass = binding.confirmPassEt.text.toString()
 
-            if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
+            // Get the selected value from the spinner
+            val selectedRole = binding.Access.selectedItem.toString()
+
+            if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty() && selectedRole.isNotEmpty()) {
                 if (pass == confirmPass) {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                Toast.makeText(this,"Successfully Signed Up",Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this, Landing::class.java)
-                                startActivity(intent)
+                                Toast.makeText(this, "Successfully Signed Up", Toast.LENGTH_SHORT).show()
+
+                                // Redirect based on the selected role
+                                if (selectedRole == "Band") {
+                                    val intent = Intent(this, Login::class.java)
+                                    startActivity(intent)
+                                } else if (selectedRole == "User") {
+                                    val intent = Intent(this, LoginUser::class.java)
+                                    startActivity(intent)
+                                }
+
                             } else {
                                 handleFirebaseException(task.exception)
                             }

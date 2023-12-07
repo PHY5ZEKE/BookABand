@@ -86,11 +86,11 @@ class Login : AppCompatActivity() {
                     } else {
                         // User doesn't have stored data or has empty data, navigate to CreateUser
                         // Display toast if the reference data is not under "Band Data"
-                        val bandReference = FirebaseDatabase.getInstance().getReference("Band Data").child(userId)
+                        val bandReference = FirebaseDatabase.getInstance().getReference("User Data").child(userId)
                         bandReference.addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onDataChange(userSnapshot: DataSnapshot) {
                                 if (userSnapshot.exists() || userSnapshot.hasChildren()) {
-                                    val landingIntent = Intent(this@Login, Landing::class.java)
+                                    val landingIntent = Intent(this@Login, LoginUser::class.java)
                                     startActivity(landingIntent)
                                     Toast.makeText(this@Login, "This is not a band account", Toast.LENGTH_SHORT).show()
                                 } else {
