@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#393939">
 
     <!-- Top LinearLayout -->
 
     <!-- ScrollView wrapping the content -->
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
@@ -23,37 +26,35 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#393939"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#393939"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/bandLogo"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="10dp"
-            app:civ_border_color="#CCCCCC"
-            app:civ_border_width="1dp"
-            app:srcCompat="@drawable/icon_only" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/bandLogo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="10dp"
+                app:civ_border_color="#CCCCCC"
+                app:civ_border_width="1dp"
+                app:srcCompat="@drawable/icon_only" />
 
-        <TextView
-            android:id="@+id/txtBandName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Organizer Name"
-            android:textColor="#FFFFFF" />
+            <TextView
+                android:id="@+id/txtBandName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Organizer Name"
+                android:textColor="#FFFFFF" />
 
-    </LinearLayout>
+        </LinearLayout>
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -81,28 +82,25 @@
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/backToBD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textColor="#F5E8C7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myBookingsRecyclerView"
-        app:layout_constraintVertical_bias="0.354" />
+        <Button
+            android:id="@+id/backToBD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textColor="#F5E8C7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myBookingsRecyclerView" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myBookingsRecyclerView"
-        android:layout_width="351dp"
-        android:layout_height="465dp"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.597" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/myBookingsRecyclerView"
+            android:layout_width="351dp"
+            android:layout_height="465dp"
+            android:layout_marginTop="112dp"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

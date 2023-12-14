@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:background="#393939"
     tools:context=".Landing">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
@@ -31,23 +35,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/RegisterLanding"
-        android:layout_width="200dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="29dp"
-        android:backgroundTint="#435585"
-        android:fontFamily="@font/intermedium"
-        android:shadowDx="30"
-        android:text="Sign Up"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogUser"
-        app:layout_constraintVertical_bias="0.078" />
+        <Button
+            android:id="@+id/RegisterLanding"
+            android:layout_width="200dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="29dp"
+            android:backgroundTint="#435585"
+            android:fontFamily="@font/intermedium"
+            android:shadowDx="30"
+            android:text="Sign Up"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogUser" />
 
     <Button
         android:id="@+id/btnLogBand"
@@ -66,35 +68,33 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.958" />
 
-    <Button
-        android:id="@+id/btnLogUser"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
-        android:backgroundTint="#F5E8C7"
-        android:fontFamily="@font/intermedium"
-        android:text="User"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.775" />
+        <Button
+            android:id="@+id/btnLogUser"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="532dp"
+            android:backgroundTint="#F5E8C7"
+            android:fontFamily="@font/intermedium"
+            android:text="User"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="331dp"
-        android:layout_height="364dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogBand"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.637"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.443"
-        app:srcCompat="@drawable/logo" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="331dp"
+            android:layout_height="364dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnLogBand"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.451"
+            app:srcCompat="@drawable/logo" />
 
-    <TextView
+        <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
