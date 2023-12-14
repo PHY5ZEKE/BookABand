@@ -60,27 +60,34 @@
             <!-- Your existing content -->
 
             <!-- RecyclerView -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/myBookingsRecyclerView"
-                android:layout_width="385dp"
-                android:layout_height="576dp"
-                android:padding="8dp" />
 
             <!-- Back Button -->
-            <Button
-                android:id="@+id/backToUD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Back"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myBookingsRecyclerView"
-                app:layout_constraintVertical_bias="0.0" />
 
         </LinearLayout>
 
     </ScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myBookingsRecyclerView"
+        android:layout_width="385dp"
+        android:layout_height="486dp"
+        android:layout_marginTop="32dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
+
+    <Button
+        android:id="@+id/backToUD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textColor="#F5E8C7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myBookingsRecyclerView"
+        app:layout_constraintVertical_bias="0.382" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
