@@ -73,49 +73,78 @@ class Login : AppCompatActivity() {
         val currentUser = firebaseAuth.currentUser
         currentUser?.let { user ->
             val userId = user.uid
-            val databaseReference = FirebaseDatabase.getInstance().getReference("Band Data").child(userId)
-            databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists() && snapshot.hasChildren()) {
-                        // User has stored data, navigate to UserDashboard
 
+            val userReference = FirebaseDatabase.getInstance().getReference("users").child(userId)
+            userReference.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(userSnapshot: DataSnapshot) {
+                    if (userSnapshot.exists()) {
+                        // User data exists, check the "role" field
+                        val role = userSnapshot.child("role").getValue(String::class.java)
 
-                        val intent = Intent(this@Login, BandDashboard::class.java)
-                        startActivity(intent)
-
-                    } else {
-                        // User doesn't have stored data or has empty data, navigate to CreateUser
-                        // Display toast if the reference data is not under "Band Data"
-                        val bandReference = FirebaseDatabase.getInstance().getReference("User Data").child(userId)
-                        bandReference.addListenerForSingleValueEvent(object : ValueEventListener {
-                            override fun onDataChange(userSnapshot: DataSnapshot) {
-                                if (userSnapshot.exists() || userSnapshot.hasChildren()) {
-                                    val landingIntent = Intent(this@Login, LoginUser::class.java)
-                                    startActivity(landingIntent)
-                                    Toast.makeText(this@Login, "This is not a band account", Toast.LENGTH_SHORT).show()
-                                } else {
-                                    // User exists but data is empty or missing, navigate to CreateUser
-                                    val createUserIntent = Intent(this@Login, CreateBand::class.java)
-                                    startActivity(createUserIntent)
+                        if (role == "Band") {
+                            // User has the role "Band", check Band Data
+                            val bandReference = FirebaseDatabase.getInstance().getReference("Band Data").child(userId)
+                            bandReference.addListenerForSingleValueEvent(object : ValueEventListener {
+                                override fun onDataChange(bandSnapshot: DataSnapshot) {
+                                    if (bandSnapshot.exists() && bandSnapshot.hasChildren()) {
+                                        // User has stored data in "Band Data", navigate to BandDashboard
+                                        val intent = Intent(this@Login, BandDashboard::class.java)
+                                        startActivity(intent)
+                                    } else {
+                                        // User doesn't have stored data or has empty data in "Band Data", navigate to CreateBand
+                                        val createUserIntent = Intent(this@Login, CreateBand::class.java)
+                                        startActivity(createUserIntent)
+                                    }
                                 }
-                            }
 
-                            override fun onCancelled(bandError: DatabaseError) {
-                                // Handle band data database error if needed
-                                Log.e("CheckBandData", "Error accessing band data: ${bandError.message}")
-                                Toast.makeText(this@Login, "Error accessing band data", Toast.LENGTH_SHORT).show()
-                            }
-                        })
+                                override fun onCancelled(bandError: DatabaseError) {
+                                    // Handle Band Data database error if needed
+                                    Log.e("CheckBandData", "Error accessing Band Data: ${bandError.message}")
+                                    Toast.makeText(this@Login, "Error accessing Band Data", Toast.LENGTH_SHORT).show()
+                                }
+                            })
+                        } else if(role == "User")
+                        {
+                            val bandReference = FirebaseDatabase.getInstance().getReference("User Data").child(userId)
+                            bandReference.addListenerForSingleValueEvent(object : ValueEventListener {
+                                override fun onDataChange(bandSnapshot: DataSnapshot) {
+                                    if (bandSnapshot.exists() && bandSnapshot.hasChildren()) {
+                                        // User has stored data in "Band Data", navigate to BandDashboard
+                                        val intent = Intent(this@Login, UserDashboard::class.java)
+                                        startActivity(intent)
+                                    } else {
+                                        // User doesn't have stored data or has empty data in "Band Data", navigate to CreateBand
+                                        val createUserIntent = Intent(this@Login, CreateUser::class.java)
+                                        startActivity(createUserIntent)
+                                    }
+                                }
+
+                                override fun onCancelled(bandError: DatabaseError) {
+                                    // Handle Band Data database error if needed
+                                    Log.e("CheckBandData", "Error accessing Band Data: ${bandError.message}")
+                                    Toast.makeText(this@Login, "Error accessing Band Data", Toast.LENGTH_SHORT).show()
+                                }
+                            })
+
+                        }
+                        else {
+                            // User has a different role, handle accordingly
+                            Toast.makeText(this@Login, "Invalid role for Band Dashboard", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        // User data doesn't exist, handle accordingly
+                        Toast.makeText(this@Login, "User data not found", Toast.LENGTH_SHORT).show()
                     }
                 }
 
-                override fun onCancelled(error: DatabaseError) {
+                override fun onCancelled(userError: DatabaseError) {
                     // Handle user data database error if needed
-                    Log.e("CheckUserData", "Error accessing user data: ${error.message}")
+                    Log.e("CheckUserData", "Error accessing user data: ${userError.message}")
                     Toast.makeText(this@Login, "Error accessing user data", Toast.LENGTH_SHORT).show()
                 }
             })
         }
     }
+
 
 }

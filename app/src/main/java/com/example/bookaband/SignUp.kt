@@ -11,11 +11,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.database.FirebaseDatabase
 
 class SignUp : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseDatabase: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,7 @@ class SignUp : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
+        firebaseDatabase = FirebaseDatabase.getInstance()
 
         binding.textView.setOnClickListener {
             val intent = Intent(this, Landing::class.java)
@@ -41,6 +44,15 @@ class SignUp : AppCompatActivity() {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
+                                // Get the user ID after successful registration
+                                val userId = firebaseAuth.currentUser?.uid
+
+                                // Create a reference to the user's data in the database
+                                val userRef = firebaseDatabase.reference.child("users").child(userId ?: "")
+
+                                // Store the selected role in the "role" field
+                                userRef.child("role").setValue(selectedRole)
+
                                 Toast.makeText(this, "Successfully Signed Up", Toast.LENGTH_SHORT).show()
 
                                 // Redirect based on the selected role
@@ -51,7 +63,6 @@ class SignUp : AppCompatActivity() {
                                     val intent = Intent(this, LoginUser::class.java)
                                     startActivity(intent)
                                 }
-
                             } else {
                                 handleFirebaseException(task.exception)
                             }

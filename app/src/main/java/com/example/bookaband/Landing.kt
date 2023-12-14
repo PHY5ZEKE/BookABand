@@ -16,14 +16,11 @@ class Landing : AppCompatActivity() {
         setContentView(R.layout.activity_landing)
         FirebaseApp.initializeApp(this)
 
-        var logUser: Button = findViewById(R.id.btnLogUser)
+
         var logBand: Button = findViewById(R.id.btnLogBand)
         var txtReg: Button = findViewById(R.id.RegisterLanding)
 
-        logUser.setOnClickListener{
-            val intent = Intent(this, LoginUser::class.java)
-            startActivity(intent)
-        }
+
         logBand.setOnClickListener{
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
