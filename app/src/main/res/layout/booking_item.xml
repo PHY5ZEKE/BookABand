@@ -17,39 +17,62 @@
         android:padding="8dp">
 
         <TextView
+            android:id="@+id/nameComission"
+            android:layout_width="82dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="220dp"
+            android:text="name"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/bandLogo2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:civ_border_color="#CCCCCC"
+            app:civ_border_width="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.931"
+            app:layout_constraintStart_toEndOf="@+id/locationTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.516"
+            app:srcCompat="@drawable/icon_only" />
+
+        <TextView
             android:id="@+id/eventNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="29dp"
+            android:layout_width="60dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
             android:text="Event"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.112"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.096" />
+            app:layout_constraintVertical_bias="0.064" />
 
         <TextView
             android:id="@+id/locationTextView"
             android:layout_width="wrap_content"
             android:layout_height="19dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="2dp"
             android:text="location"
             android:textColor="#000000"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.108"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/eventNameTextView" />
 
         <TextView
             android:id="@+id/dateTextView"
             android:layout_width="wrap_content"
-            android:layout_height="19dp"
+            android:layout_height="21dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="2dp"
             android:text="date"
             android:textColor="#090909"
             android:textSize="12sp"
@@ -66,17 +89,5 @@
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/locationTextView"
             app:layout_constraintTop_toBottomOf="@+id/locationTextView" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="52dp"
-            android:layout_height="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.831"
-            app:layout_constraintStart_toEndOf="@+id/locationTextView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.487"
-            app:srcCompat="@drawable/listmusic" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

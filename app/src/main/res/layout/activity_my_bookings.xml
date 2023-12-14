@@ -10,6 +10,18 @@
 
     <!-- ScrollView wrapping the content -->
 
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Pending Requests"
+        android:textColor="#F5E8C7"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/myBookingsRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
@@ -71,7 +83,7 @@
         android:id="@+id/myBookingsRecyclerView"
         android:layout_width="385dp"
         android:layout_height="486dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

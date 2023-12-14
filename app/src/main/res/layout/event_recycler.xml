@@ -18,14 +18,13 @@
 
         <TextView
             android:id="@+id/nameComission"
-            android:layout_width="wrap_content"
-            android:layout_height="19dp"
+            android:layout_width="82dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="204dp"
             android:text="name"
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bandLogo2"
-            app:layout_constraintHorizontal_bias="0.908"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/eventNameTextView"
             app:layout_constraintVertical_bias="0.0" />
@@ -48,27 +47,25 @@
             android:id="@+id/eventNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
+            android:layout_marginStart="16dp"
             android:text="Event"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.112"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.096" />
+            app:layout_constraintVertical_bias="0.064" />
 
         <TextView
             android:id="@+id/locationTextView"
             android:layout_width="wrap_content"
             android:layout_height="19dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="2dp"
             android:text="location"
             android:textColor="#000000"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.108"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/eventNameTextView" />
 

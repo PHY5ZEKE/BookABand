@@ -10,6 +10,19 @@
 
     <!-- ScrollView wrapping the content -->
 
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Incoming Events"
+        android:textColor="#F5E8C7"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/myBookingsRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
@@ -63,17 +76,20 @@
         android:textColor="#F5E8C7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myBookingsRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/myBookingsRecyclerView"
+        app:layout_constraintVertical_bias="0.282" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myBookingsRecyclerView"
-        android:layout_width="349dp"
-        android:layout_height="505dp"
+        android:layout_width="359dp"
+        android:layout_height="437dp"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.595" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
