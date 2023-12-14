@@ -1,7 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.BookABand" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/your_primary_color</item>
+        <item name="colorPrimaryVariant">@color/your_primary_color</item>
+        <item name="colorOnPrimary">@color/your_primary_color</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/your_primary_color</item>
+        <item name="colorSecondaryVariant">@color/your_primary_color</item>
+        <item name="colorOnSecondary">@color/your_primary_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
 </resources>
