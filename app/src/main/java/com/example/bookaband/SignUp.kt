@@ -59,10 +59,11 @@ class SignUp : AppCompatActivity() {
                                 if (selectedRole == "Band") {
                                     val intent = Intent(this, Login::class.java)
                                     startActivity(intent)
-                                } else if (selectedRole == "User") {
-                                    val intent = Intent(this, LoginUser::class.java)
-                                    startActivity(intent)
                                 }
+//                                else if (selectedRole == "User") {
+//                                    val intent = Intent(this, LoginUser::class.java)
+//                                    startActivity(intent)
+//                                }
                             } else {
                                 handleFirebaseException(task.exception)
                             }
