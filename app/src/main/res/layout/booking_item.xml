@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/bandLogo2"
+            android:id="@+id/comissioner"
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:civ_border_color="#CCCCCC"

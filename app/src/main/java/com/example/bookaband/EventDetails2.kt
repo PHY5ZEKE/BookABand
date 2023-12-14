@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -16,14 +15,14 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
 
-class RequestDetailsUser : AppCompatActivity() {
+class EventDetails2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_request_details_user)
+        setContentView(R.layout.activity_event_details2)
 
         // Retrieve the BookingData object from the intent
-        val selectedBookingUser = intent.getSerializableExtra("requestDetailsUser") as BookingData
+        val selectedEvent = intent.getSerializableExtra("eventDetails") as AcceptedEvents
 
         // Initialize the TextViews
         val bandNameTextView: TextView = findViewById(R.id.bandNameTextView)
@@ -36,36 +35,37 @@ class RequestDetailsUser : AppCompatActivity() {
         val userEmailTextView: TextView = findViewById(R.id.userEmailTextView)
         val bandLogoImageView: CircleImageView = findViewById(R.id.bandLogo)
 
-      //Buttons
+        //Buttons
         val goBackToRequestsUser: Button = findViewById(R.id.btnBack)
         val cancelRequest: Button = findViewById(R.id.btnCancel)
 
 
+
         // Populate the TextViews with labels and data from the BookingData object
 
-        eventNameTextView.text = "Event Name: ${selectedBookingUser.eventName}"
-        bandNameTextView.text = "Band Name: ${selectedBookingUser.bandName}"
-        locationTextView.text = "Location: ${selectedBookingUser.location}"
-        dateTextView.text = "Date: ${selectedBookingUser.date}"
-        timeTextView.text = "Time: ${selectedBookingUser.time}"
-        userNameTextView.text = "Organizer: ${selectedBookingUser.userName}"
-        userContactTextView.text = "Contact: ${selectedBookingUser.userContact}"
-        userEmailTextView.text = "Email: ${selectedBookingUser.userEmail}"
+        eventNameTextView.text = "Event Name: ${selectedEvent.eventName}"
+        bandNameTextView.text = "Band Name: ${selectedEvent.bandName}"
+        locationTextView.text = "Location: ${selectedEvent.location}"
+        dateTextView.text = "Date: ${selectedEvent.date}"
+        timeTextView.text = "Time: ${selectedEvent.time}"
+        userNameTextView.text = "Organizer: ${selectedEvent.userName}"
+        userContactTextView.text = "Contact: ${selectedEvent.userContact}"
+        userEmailTextView.text = "Email: ${selectedEvent.userEmail}"
 
         Glide.with(this)
-            .load(selectedBookingUser.bandImage) // Assuming bandImage is the URL of the band's ima
+            .load(selectedEvent.bandImage) // Assuming bandImage is the URL of the band's ima
             .into(bandLogoImageView)
 
-       goBackToRequestsUser.setOnClickListener{
-           val intent = Intent(this, MyBookingsUser::class.java)
-           startActivity(intent)
-       }
+        goBackToRequestsUser.setOnClickListener{
+            val intent = Intent(this, EventUser::class.java)
+            startActivity(intent)
+        }
         cancelRequest.setOnClickListener {
             // Assuming the bookingId is stored as a child in the database
-            val databaseReference = FirebaseDatabase.getInstance().getReference("Bookings")
+            val databaseReference = FirebaseDatabase.getInstance().getReference("Accepted Events")
 
             // Retrieve bookingId from the database using the selectedBookingUser's properties
-            val selectedBookingUser = intent.getSerializableExtra("requestDetailsUser") as BookingData
+            val selectedBookingUser = intent.getSerializableExtra("eventDetails") as AcceptedEvents
             val userId = selectedBookingUser.userId
             val eventName = selectedBookingUser.eventName
             val date = selectedBookingUser.date
@@ -73,12 +73,12 @@ class RequestDetailsUser : AppCompatActivity() {
             databaseReference.orderByChild("userId").equalTo(userId)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        for (bookingSnapshot in snapshot.children) {
-                            val bookingData = bookingSnapshot.getValue(BookingData::class.java)
-                            if (bookingData != null && bookingData.eventName == eventName && bookingData.date == date) {
-                                val bookingId = bookingSnapshot.key
-                                if (bookingId != null) {
-                                    showDeleteConfirmationDialog(bookingId)
+                        for (eventSnapshot in snapshot.children) {
+                            val eventData = eventSnapshot.getValue(AcceptedEvents::class.java)
+                            if (eventData != null && eventData.eventName == eventName && eventData.date == date) {
+                                val eventId = eventSnapshot.key
+                                if (eventId != null) {
+                                    showDeleteConfirmationDialog(eventId)
 
                                 }
 
@@ -101,11 +101,11 @@ class RequestDetailsUser : AppCompatActivity() {
     private fun showDeleteConfirmationDialog(bookingId: String) {
         val alertDialogBuilder = AlertDialog.Builder(this)
         alertDialogBuilder.setTitle("Confirm Delete")
-        alertDialogBuilder.setMessage("Are you sure you want to cancel this booking?")
+        alertDialogBuilder.setMessage("Are you sure you want to remove this event?")
         alertDialogBuilder.setPositiveButton("Yes") { _, _ ->
             // User clicked "Yes," so delete the booking
             deleteBooking(bookingId)
-            val intent = Intent(this, MyBookingsActivity::class.java)
+            val intent = Intent(this, MyBookingsUser::class.java)
             startActivity(intent)
         }
         alertDialogBuilder.setNegativeButton("No") { dialog, _ ->
@@ -117,15 +117,15 @@ class RequestDetailsUser : AppCompatActivity() {
         alertDialog.show()
     }
     private fun deleteBooking(bookingId: String) {
-        val databaseReference = FirebaseDatabase.getInstance().getReference("Bookings")
+        val databaseReference = FirebaseDatabase.getInstance().getReference("Accepted Events")
 
         // Use the child method to specify the node to delete
         databaseReference.child(bookingId).removeValue()
             .addOnSuccessListener {
-                Toast.makeText(this, "Booking canceled successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Event Removed", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "Failed to cancel booking: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Failed to remove event: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 

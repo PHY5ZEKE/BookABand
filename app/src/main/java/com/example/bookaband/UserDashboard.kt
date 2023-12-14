@@ -81,7 +81,7 @@ class UserDashboard : AppCompatActivity() {
 
         }
         btnRequests.setOnClickListener{
-            val intent = Intent(this, MyBookingsActivity::class.java)
+            val intent = Intent(this, MyBookingsUser::class.java)
             startActivity(intent)
         }
         btnEditUser.setOnClickListener{

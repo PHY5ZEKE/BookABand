@@ -11,8 +11,10 @@ data class AcceptedEvents(val bandId: String,
                           val userId: String,
                           val userEmail: String,
                           val userName: String,
-                          val userContact: String
+                          val userContact: String,
+                          val userImage: String,
+    val bandImage:String,
 ): Serializable {
     // Empty constructor
-    constructor() : this("", "", "", "", "", "", "", "", "","")
+    constructor() : this("", "", "", "", "", "", "", "", "","","","")
 }

@@ -26,6 +26,8 @@ class BandDetails : AppCompatActivity() {
     private lateinit var currentUserContact: String
     private lateinit var currentUserName: String
     private lateinit var currentUserEmail: String
+    private lateinit var currentUserImage: String
+    private lateinit var currentBandImage: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,14 +65,14 @@ class BandDetails : AppCompatActivity() {
                         currentUserName = snapshot.child("name").getValue(String::class.java) ?: ""
                         currentUserContact =
                             snapshot.child("contact").getValue(String::class.java) ?: ""
-
+                        currentUserImage = snapshot.child("imageURL").getValue(String::class.java) ?: ""
                         // Set values to TextViews and ImageView
                         nameTextView.text = bandDetails.name
                         genreTextView.text = bandDetails.genre
                         priceTextView.text = "$${bandDetails.price}"
                         descriptionTextView.text = bandDetails.desc
                         emailTextView.text = currentUserEmail // Display the user's email
-
+                        currentBandImage = bandDetails.imageURL.toString()
                         // Load image using Glide (ensure to handle null imageURL)
                         Glide.with(this@BandDetails)
                             .load(bandDetails.imageURL)
@@ -176,7 +178,9 @@ class BandDetails : AppCompatActivity() {
                     userId = userId.toString(),
                     userEmail = currentUserEmail,
                     userName = currentUserName,
-                    userContact = currentUserContact
+                    userContact = currentUserContact,
+                    userImage = currentUserImage,
+                    bandImage = currentBandImage
                 )
 
                 val databaseReference = FirebaseDatabase.getInstance().getReference("Bookings")

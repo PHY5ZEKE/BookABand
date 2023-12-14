@@ -18,36 +18,35 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class EventUser : AppCompatActivity() {
+class MyBookingsUser : AppCompatActivity() {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var bookingAdapter: BookingAdapter2
+    private lateinit var bookingList: MutableList<BookingData>
     private lateinit var auth: FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
-    private lateinit var databaseReference1: DatabaseReference
     private lateinit var currentUser: FirebaseUser
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var eventsAdapter: AcceptedEventsAdapter2
-    private lateinit var eventList: MutableList<AcceptedEvents>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_event_user)
+        setContentView(R.layout.activity_my_bookings)
 
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser!!
-        databaseReference = FirebaseDatabase.getInstance().getReference("Accepted Events")
-        databaseReference1 = FirebaseDatabase.getInstance().getReference("User Data")
+        databaseReference = FirebaseDatabase.getInstance().getReference("User Data")
 
         recyclerView = findViewById(R.id.myBookingsRecyclerView)
-        eventList = mutableListOf()
-        eventsAdapter = AcceptedEventsAdapter2(eventList) { selectedEvent -> showEventDetails(selectedEvent)
+        bookingList = mutableListOf()
+        bookingAdapter = BookingAdapter2(bookingList) { selectedBookingUser ->
+            showBookingDetailsUser(selectedBookingUser)
         }
 
-        recyclerView.adapter = eventsAdapter
+        recyclerView.adapter = bookingAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val userUid = currentUser.uid
 
-
-        databaseReference1.child(userUid).addListenerForSingleValueEvent(object : ValueEventListener {
+        // Query the database using userUid to get band details
+        databaseReference.child(userUid).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     val bandName = snapshot.child("name").getValue(String::class.java)
@@ -62,7 +61,7 @@ class EventUser : AppCompatActivity() {
                     txtBandName.text = bandName
 
                     // Load image using Glide or any other image loading library
-                    Glide.with(this@EventUser)
+                    Glide.with(this@MyBookingsUser)
                         .load(imageURL)
                         .into(bandLogoImageView)
                 }
@@ -73,27 +72,27 @@ class EventUser : AppCompatActivity() {
             }
         })
 
-        val backToUserDashboard: Button = findViewById(R.id.backToBD)
+        val backToUserDashboard: Button = findViewById(R.id.backToUD)
 
         // Get the current user's ID (you can use Firebase Authentication)
         val userId = FirebaseAuth.getInstance().currentUser?.uid
 
         // Query Firebase to get bookings for the current user
         userId?.let {
-            val databaseReference = FirebaseDatabase.getInstance().getReference("Accepted Events")
+            val databaseReference = FirebaseDatabase.getInstance().getReference("Bookings")
             databaseReference.orderByChild("userId").equalTo(it)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        eventList.clear()
+                        bookingList.clear()
 
-                        for (eventSnapshot in snapshot.children) {
-                            val acceptedEvents = eventSnapshot.getValue(AcceptedEvents::class.java)
-                            acceptedEvents?.let {
-                                eventList.add(it)
+                        for (bookingSnapshot in snapshot.children) {
+                            val bookingData = bookingSnapshot.getValue(BookingData::class.java)
+                            bookingData?.let {
+                                bookingList.add(it)
                             }
                         }
 
-                        eventsAdapter.notifyDataSetChanged()
+                        bookingAdapter.notifyDataSetChanged()
                     }
 
                     override fun onCancelled(error: DatabaseError) {
@@ -103,16 +102,17 @@ class EventUser : AppCompatActivity() {
                 })
         }
         backToUserDashboard.setOnClickListener{
-            val intent = Intent(this,UserDashboard::class.java)
+            val intent = Intent(this, UserDashboard::class.java)
             startActivity(intent)
         }
     }
-    private fun showEventDetails(selectedEvent: AcceptedEvents) {
-        // Implement the logic to show the details of the selected booking.
+    private fun showBookingDetailsUser(selectedBookingUser: BookingData) {
+        // Implement the logic to show the details of the selected band.
         // You can use a dialog, another activity, or any other UI component to display the details.
         // For example, you can create a new activity and pass the details using Intent.
-        val intent = Intent(this, EventDetails2::class.java)
-        intent.putExtra("eventDetails", selectedEvent)
+        val intent = Intent(this, RequestDetailsUser::class.java)
+        intent.putExtra("requestDetailsUser", selectedBookingUser)
         startActivity(intent)
     }
+
 }

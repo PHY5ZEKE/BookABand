@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.cardview.widget.CardView
 import android.widget.ImageView
+import com.bumptech.glide.Glide
 import java.io.Serializable
 
 class AcceptedEventsAdapter(
@@ -21,6 +22,8 @@ class AcceptedEventsAdapter(
         val locationTextView: TextView = itemView.findViewById(R.id.locationTextView)
         val dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
         val timeTextView: TextView = itemView.findViewById(R.id.timeTextView)
+        val comissionerTextView:TextView = itemView.findViewById(R.id.nameComission)
+        val comissionImageView: ImageView = itemView.findViewById(R.id.comissioner)
 
         init {
             itemView.setOnClickListener {
@@ -45,6 +48,10 @@ class AcceptedEventsAdapter(
         holder.locationTextView.text = currentItem.location
         holder.dateTextView.text = currentItem.date
         holder.timeTextView.text = currentItem.time
+        holder.comissionerTextView.text = currentItem.userName
+        Glide.with(holder.itemView.context)
+            .load(currentItem.userImage)
+            .into(holder.comissionImageView)
     }
 
     override fun getItemCount(): Int {

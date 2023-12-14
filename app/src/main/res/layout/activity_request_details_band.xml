@@ -34,11 +34,13 @@
             app:srcCompat="@drawable/icon_only" />
 
         <TextView
-            android:id="@+id/txtBandName"
-            android:layout_width="wrap_content"
+            android:id="@+id/userNameTextView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Organizer Name"
-            android:textColor="#FFFFFF" />
+            android:layout_marginBottom="12dp"
+            android:text="Sample"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -144,15 +146,6 @@
 
         <TextView
             android:id="@+id/timeTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:text="Sample"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/userNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"

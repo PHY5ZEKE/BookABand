@@ -10,10 +10,10 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import java.io.Serializable
 
-class BookingAdapter(
+class BookingAdapter2(
     private val bookingList: List<BookingData>,
     private val onItemClick: (BookingData) -> Unit
-) : RecyclerView.Adapter<BookingAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<BookingAdapter2.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val cardView: CardView = itemView.findViewById(R.id.bookingCardView)
@@ -21,8 +21,8 @@ class BookingAdapter(
         val locationTextView: TextView = itemView.findViewById(R.id.locationTextView)
         val dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
         val timeTextView: TextView = itemView.findViewById(R.id.timeTextView)
-        val comissionTextView: TextView = itemView.findViewById(R.id.nameComission)
-        val comissionImageView: ImageView = itemView.findViewById(R.id.comissioner)
+        val bandTextView: TextView = itemView.findViewById(R.id.nameComission)
+        val bandImageView: ImageView = itemView.findViewById(R.id.comissioner)
 
         init {
             itemView.setOnClickListener {
@@ -47,10 +47,10 @@ class BookingAdapter(
         holder.locationTextView.text = currentItem.location
         holder.dateTextView.text = currentItem.date
         holder.timeTextView.text = currentItem.time
-        holder.comissionTextView.text = currentItem.userName
+        holder.bandTextView.text = currentItem.bandName
         Glide.with(holder.itemView.context)
-            .load(currentItem.userImage)
-            .into(holder.comissionImageView)
+            .load(currentItem.bandImage)
+            .into(holder.bandImageView)
     }
 
     override fun getItemCount(): Int {

@@ -7,11 +7,13 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.bumptech.glide.Glide
 import com.example.bookaband.BookingData
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import de.hdodenhof.circleimageview.CircleImageView
 
 class RequestDetailsBand : AppCompatActivity() {
 
@@ -31,6 +33,7 @@ class RequestDetailsBand : AppCompatActivity() {
         val userNameTextView: TextView = findViewById(R.id.userNameTextView)
         val userContactTextView: TextView = findViewById(R.id.userContactTextView)
         val userEmailTextView: TextView = findViewById(R.id.userEmailTextView)
+        val bandLogoImageView: CircleImageView = findViewById(R.id.bandLogo)
 
         //Buttons
         val goBackToRequestsUser: Button = findViewById(R.id.btnBack)
@@ -48,6 +51,11 @@ class RequestDetailsBand : AppCompatActivity() {
         userNameTextView.text = "Organizer: ${selectedBookingUser.userName}"
         userContactTextView.text = "Contact: ${selectedBookingUser.userContact}"
         userEmailTextView.text = "Email: ${selectedBookingUser.userEmail}"
+
+
+        Glide.with(this)
+            .load(selectedBookingUser.userImage) // Assuming bandImage is the URL of the band's ima
+            .into(bandLogoImageView)
 
         goBackToRequestsUser.setOnClickListener{
             val intent = Intent(this, MyBookingsBand::class.java)
