@@ -164,7 +164,7 @@ class RequestDetailsBand : AppCompatActivity() {
         // Use the child method to specify the node to delete
         databaseReference.child(bookingId).removeValue()
             .addOnSuccessListener {
-                Toast.makeText(this, "Booking canceled successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Booking  successful", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Failed to cancel booking: ${e.message}", Toast.LENGTH_SHORT).show()
