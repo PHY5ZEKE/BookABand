@@ -86,6 +86,7 @@
             android:id="@+id/backToBD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="Back"
             android:textColor="#F5E8C7"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,10 +96,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myBookingsRecyclerView"
-            android:layout_width="351dp"
-            android:layout_height="465dp"
-            android:layout_marginTop="112dp"
-            android:padding="8dp"
+            android:layout_width="402dp"
+            android:layout_height="515dp"
+            android:layout_marginTop="120dp"
+            android:background="#1E1E1E"
+            android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

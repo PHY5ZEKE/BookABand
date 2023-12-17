@@ -39,7 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Organizer Name"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -70,12 +71,13 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myBookingsRecyclerView"
-            android:layout_width="374dp"
-            android:layout_height="463dp"
-            android:layout_marginTop="116dp"
-            android:padding="8dp"
+            android:layout_width="408dp"
+            android:layout_height="464dp"
+            android:layout_marginTop="148dp"
+            android:background="#1E1E1E"
+            android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.432"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,6 +85,7 @@
             android:id="@+id/backToBD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:text="Back"
             android:textColor="#F5E8C7"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +93,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/myBookingsRecyclerView" />
 
-    <TextView
+        <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
